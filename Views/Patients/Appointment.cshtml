@@ -1,0 +1,215 @@
+﻿@model MediLinkCB.Models.Appointment
+
+@{
+    ViewBag.Title = "Book an Appointment";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <h1>Book an Appointment</h1>
+
+    @using (Html.BeginForm("BookAppointment", "Patients", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.SaID, "South Africa ID")
+            @Html.TextBoxFor(model => model.SaID, new { @class = "form-control", required = "required" })
+            @Html.ValidationMessageFor(model => model.SaID, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.EmailAddress, "Email Address")
+            @Html.TextBoxFor(model => model.EmailAddress, new { @class = "form-control", type = "email", required = "required" })
+            @Html.ValidationMessageFor(model => model.EmailAddress, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Patient.CellNumber, "Phone Number")
+            @Html.TextBoxFor(model => model.Patient.CellNumber, new { @class = "form-control", type = "tel", required = "required" })
+            @Html.ValidationMessageFor(model => model.Patient.CellNumber, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.AppointmentReason, "Appointment Reason")
+            @Html.DropDownListFor(model => model.AppointmentReason, new SelectList(new[]
+                {
+                    new { Value = "Check up", Text = "Check up" },
+                    new { Value = "Medication Care", Text = "Medication Care" },
+                    new { Value = "Preventive", Text = "Preventive Care" },
+                    new { Value = "Immunisation", Text = "Immunisation" },
+                    new { Value = "Family Planning", Text = "Family Planning" },
+                    new { Value = "Other", Text = "Other" }
+                }, "Value", "Text"), "-- Select Reason --", new { @class = "form-control", required = "required" })
+            @Html.ValidationMessageFor(model => model.AppointmentReason, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            <label for="appointmentDate">Appointment Date:</label>
+            <input type="date" name="appointmentDate" id="appointmentDate" class="form-control" required />
+        </div>
+
+        <div class="form-group">
+            <input type="submit" value="Book Appointment" class="btn btn-primary" />
+        </div>
+    }
+
+    <!-- Calendar Section -->
+    <div class="calendar">
+        <h1>Booking Calendar</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>9:00 AM</th>
+                    <th>12:00 PM</th>
+                    <th>3:00 PM</th>
+                </tr>
+            </thead>
+            <tbody id="calendar-body">
+                <!-- JavaScript will populate this -->
+            </tbody>
+        </table>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const calendarBody = document.getElementById('calendar-body');
+            const timeSlots = ['9:00 AM', '12:00 PM', '3:00 PM'];
+
+            // Generate calendar for the next 7 days
+            const startDate = new Date(); // Current date
+            for (let i = 0; i < 7; i++) {
+                const currentDate = new Date(startDate);
+                currentDate.setDate(currentDate.getDate() + i);
+
+                const row = document.createElement('tr');
+
+                // Date cell
+                const dateCell = document.createElement('td');
+                dateCell.textContent = currentDate.toDateString().slice(4, 10);
+                row.appendChild(dateCell);
+
+                // Time slots cells
+                timeSlots.forEach(time => {
+                    const cell = document.createElement('td');
+                    cell.textContent = time;
+                    cell.classList.add('available'); // Default to available
+
+                    cell.addEventListener('click', () => {
+                        if (cell.classList.contains('available')) {
+                            cell.classList.remove('available');
+                            cell.classList.add('unavailable');
+                        } else {
+                            cell.classList.remove('unavailable');
+                            cell.classList.add('available');
+                        }
+                    });
+
+                    row.appendChild(cell);
+                });
+
+                calendarBody.appendChild(row);
+            }
+        });
+    </script>
+}
+
+@section Styles {
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+            .form-group label {
+                display: block;
+                margin-bottom: 5px;
+                font-weight: bold;
+            }
+
+            .form-group input, .form-group select, .form-group textarea {
+                width: 100%;
+                padding: 10px;
+                border: 1px solid #ddd;
+                border-radius: 4px;
+            }
+
+                .form-group input[type="submit"] {
+                    background-color: #28a745;
+                    color: #fff;
+                    border: none;
+                    cursor: pointer;
+                    font-size: 16px;
+                }
+
+                    .form-group input[type="submit"]:hover {
+                        background-color: #218838;
+                    }
+
+        .calendar {
+            margin-top: 40px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: center;
+            border: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #f8f9fa;
+        }
+
+        .available {
+            background-color: #28a745;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        .unavailable {
+            background-color: #dc3545;
+            color: #fff;
+            cursor: not-allowed;
+        }
+
+        td {
+            cursor: pointer;
+        }
+
+            td:hover {
+                opacity: 0.8;
+            }
+    </style>
+}

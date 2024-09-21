@@ -1,0 +1,72 @@
+﻿@model MediLinkCB.Models.UserProfile
+
+@{
+    ViewBag.Title = "Create";
+    ViewBag.ShowSidebar = true;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h2>Create</h2>
+
+@using (Html.BeginForm("AddUser", "Login", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        @Html.Partial("_Sidebar")
+        <button class="openbtn" onclick="openNav()">&#9776; Menu</button>
+
+        <h4>UserProfile</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+    <div class="form-row">
+        <div class="form-group half-width">
+            @Html.LabelFor(m => m.UserName)
+            @Html.TextBoxFor(m => m.UserName, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.UserName)
+        </div>
+
+        <div class="form-group half-width">
+            @Html.LabelFor(m => m.PasswordHash, "Password")
+            @Html.PasswordFor(m => m.PasswordHash, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.PasswordHash)
+        </div>
+    </div>
+        
+        <div class="form-row">
+        <div class="form-group half-width" >
+            @Html.LabelFor(m => m.Email)
+            @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.Email)
+        </div>
+
+
+        <div class="form-group half-width">
+            @Html.LabelFor(m => m.UserType)
+            @Html.DropDownListFor(m => m.UserType, new SelectList(new[] { "doctor", "nurse", "clerk" }), "Select User Type", new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.UserType)
+        </div>
+            </div>
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.IsActive)
+            <div>
+                <label>@Html.RadioButtonFor(m => m.IsActive, true) Active</label>
+                <label>@Html.RadioButtonFor(m => m.IsActive, false) Inactive</label>
+            </div>
+            @Html.ValidationMessageFor(m => m.IsActive)
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

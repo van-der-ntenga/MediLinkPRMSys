@@ -1,0 +1,40 @@
+﻿@model IEnumerable<MediLinkCB.Models.Appointment>
+
+@{
+    ViewBag.Title = "Index";
+    ViewBag.ShowMainMenu = true;
+}
+
+<h2>Appointments List</h2>
+
+<p>
+    @Html.ActionLink("Add New Appointment", "Create")
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>@Html.DisplayName("South African ID")</th>
+            <th>@Html.DisplayName("Appointment Date & Time")</th>
+            <th>@Html.DisplayName("Appointment Reason")</th>
+            <th>@Html.DisplayName("Email Address")</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.SaID)</td>
+                <td>@Html.DisplayFor(modelItem => item.AppointmentDateTime)</td>
+                <td>@Html.DisplayFor(modelItem => item.AppointmentReason)</td>
+                <td>@Html.DisplayFor(modelItem => item.EmailAddress)</td>
+               
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.AppointmentID }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.AppointmentID }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.AppointmentID })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

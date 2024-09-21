@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - MediLink Portal</title>
+    <link rel="stylesheet" href="~/Content/css/site.css" />
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <header>
+        <h1>MediLink Portal</h1>
+    </header>
+
+    <!-- Sidebar Markup -->
+    @if (ViewBag.ShowSidebar != null && ViewBag.ShowSidebar)
+    {
+        @Html.Partial("_Sidebar")
+    }
+
+    <!-- Menu Markup -->
+    @if (ViewBag.ShowMenu != null && ViewBag.ShowMenu)
+    {
+        @Html.Partial("_Menu")
+    }
+
+    @if (ViewBag.ShowPatientTable != null && ViewBag.ShowPatientTable)
+    {
+        @Html.Partial("_PatientTable")
+    }
+
+    @if(ViewBag.ShowMainMenu != null && ViewBag.ShowMainMenu)
+            {
+                @Html.Partial("_MainMenu")
+            }
+
+    <div class="container" id="main">
+        @RenderBody()
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,117 @@
+﻿@model MediLinkCB.Models.UserProfile
+
+@{
+    ViewBag.Title = "Login";
+    ViewBag.ShowSidebar = false;
+    
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm("Login", "Login", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <div class="form-container">
+        <centre>
+            <h2>Login</h2>
+        </centre>
+        <div class="form-group">
+            @Html.Label("UserName", "Username")
+            @Html.TextBoxFor(model => model.UserName, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.UserName)
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.PasswordHash, "Password")
+            @Html.PasswordFor(model => model.PasswordHash, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.PasswordHash)
+        </div>
+
+        <input type="hidden" name="returnUrl" value="@ViewBag.ReturnUrl" />
+        <button type="submit" class="btn btn-primary">Login</button>
+
+        <div>
+            <a href="@Url.Action("ForgotPassword", "Login")">Forgot Password?</a>
+        </div>
+    </div>
+}
+
+@if (!String.IsNullOrEmpty(ViewBag.Message))
+{
+    <div class="alert alert-danger">@ViewBag.Message</div>
+}
+
+<style>
+    /* General body styling */
+    body {
+        font-family: Arial, sans-serif;
+        background: url('/Content/hlengisizwe.jpg') no-repeat center center fixed;
+        background-size: cover;
+        margin: 0;
+        padding: 0;
+    }
+
+    /* Form container styling */
+    .form-container {
+        max-width: 800px; /* Reduced size for the container */
+        margin: 150px auto; /* Centers the form vertically and horizontally */
+        padding: 20px; /* Adjusted padding */
+        background-color: rgba(255, 249, 227, 0.9); /* Egg shell colored background */
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        text-align: left; /* Aligns text to the left */
+        backdrop-filter: blur(10px); /* Blur effect on the container */
+    }
+
+    /* Form group styles */
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+        /* Label styles */
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #555;
+            font-weight: bold;
+        }
+
+        /* Input field styling */
+        .form-group input[type="text"],
+        .form-group input[type="password"] {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+            background-color: rgba(255, 255, 255, 0.8); /* Slight transparency for input background */
+            backdrop-filter: blur(2px); /* Blur effect on input fields */
+        }
+
+            /* Input focus styling */
+            .form-group input[type="text"]:focus,
+            .form-group input[type="password"]:focus {
+                border-color: #3cb371; /* Highlight border on focus */
+                box-shadow: 0 0 5px rgba(60, 179, 113, 0.5); /* Slight green shadow */
+                background-color: rgba(255, 255, 255, 1); /* Opaque background on focus */
+            }
+
+    /* Button styling */
+    button[type="submit"] {
+        width: 50%; /* Make the button smaller */
+        background-color: #3cb371; /* Medium sea green */
+        color: white;
+        border: none;
+        padding: 12px 20px; /* Increased padding */
+        border-radius: 25px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+        /* Button hover styling */
+        button[type="submit"]:hover {
+            background-color: #2e8b57; /* Darker green */
+        }
+
+</style>

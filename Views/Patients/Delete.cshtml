@@ -1,0 +1,186 @@
+﻿@model MediLinkCB.Models.PatientResidentialAddressNOKViewModel
+
+@{
+    ViewBag.Title = "Delete";
+    ViewBag.ShowMenu = true;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Patient</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.SaID)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.SaID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PatientName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PatientName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PatientSurname)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PatientSurname)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateOfBirth)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.DateOfBirth)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PatientHeight)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PatientHeight)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PatientWeight)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PatientWeight)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Age)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Age)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Gender)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Gender)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Race)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Race)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HomeLang)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.HomeLang)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MaritalStatus)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.MaritalStatus)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Disability)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Disability)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StreetAddress)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.StreetAddress)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.City)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.City)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Suburb)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Suburb)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PostalCode)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PostalCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Province)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Province)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EmailAddress)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EmailAddress)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CellNumber)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CellNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NOKFirstName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.NOKFirstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NOKLastName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.NOKLastName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Relationship)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Relationship)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NOKCellNumber)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.NOKCellNumber)
+        </dd>
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-danger" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

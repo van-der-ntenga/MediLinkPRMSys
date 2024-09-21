@@ -1,0 +1,28 @@
+﻿@{
+    ViewBag.Title = "Main Dashboard";
+    ViewBag.ShowMainMenu = true;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<body>
+    <div id="main">
+        <button class="openbtn" onclick="openNav()">&#9776; Menu</button>
+        <h2>Main Dashboard</h2>
+        <p>Welcome, @Session["UserName"]!</p>
+    </div>
+
+    <button id="logoutButton" class="btn btn-danger" onclick="confirmLogout()">Logout</button>
+
+    <script>
+    function confirmLogout() {
+        if (confirm("Are you sure you want to log out of the system?")) {
+            window.location.href = '@Url.Action("Logout", "Login" )';
+        }
+    }
+    </script>
+</body>
+
+</html>

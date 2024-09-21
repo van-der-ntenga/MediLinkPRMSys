@@ -1,0 +1,284 @@
+﻿/* General body styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f7f3e9; /* Egg shell white background */
+    color: #333; /* Dark text for contrast */
+    margin: 0;
+    padding: 0;
+}
+
+/* Header styling with flex layout */
+header {
+    background-color: rgba(60, 179, 113, 0.8); /* Medium sea green with opacity for blur effect */
+    backdrop-filter: blur(5px); /* Blur effect */
+    color: white;
+    padding: 10px;
+    text-align: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo {
+    height: 40px; /* Logo size */
+    margin-right: 10px; /* Spacing between logo and title */
+}
+
+/* Container for form elements */
+.container {
+    max-width: 1000px; /* Maximum width for the form */
+    margin: 100px auto 20px auto; /* Center with top margin for fixed header */
+    padding: 20px;
+    background-color: rgba(255, 249, 227, 0.9); /* Light background with opacity for blur effect */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Form styles */
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Form group styles */
+.form-group {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+    /* Label styles */
+    .form-group label {
+        margin-bottom: 5px;
+        color: #555;
+        font-weight: bold;
+    }
+
+    /* Input field styling */
+    .form-group input[type="text"],
+    .form-group input[type="date"],
+    .form-group input[type="number"],
+    .form-group input[type="tel"],
+    .form-group input[type="password"],
+    .form-group input[type="email"],
+    .form-group select,
+    .form-group textarea {
+        padding: 12px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        width: 100%;
+        font-size: 16px;
+        margin-bottom: 10px;
+        transition: border-color 0.3s, box-shadow 0.3s;
+        background-color: rgba(255, 255, 255, 0.8); /* Slight transparency for input background */
+        backdrop-filter: blur(2px); /* Blur effect on input fields */
+    }
+
+        .form-group input[type="text"]:focus,
+        .form-group input[type="date"]:focus,
+        .form-group input[type="number"]:focus,
+        .form-group input[type="tel"]:focus,
+        .form-group input[type="password"]:focus,
+        .form-group input[type="email"]:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: #3cb371; /* Highlight border on focus */
+            box-shadow: 0 0 5px rgba(60, 179, 113, 0.5); /* Slight green shadow */
+            background-color: rgba(255, 255, 255, 1); /* Opaque background on focus */
+        }
+
+    /* Radio button styling */
+    .form-group input[type="radio"] {
+        margin-right: 10px;
+    }
+
+/* Container for form sections that need to be side by side */
+.form-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* Adjust spacing between fields */
+}
+
+.form-group.half-width {
+    flex: 1;
+    min-width: 200px; /* Minimum width for each input to prevent overflow */
+}
+
+/* Ensure full width form groups do not shrink */
+.form-group.full-width {
+    width: 100%;
+    flex: 1 1 100%;
+}
+
+/* Button styles */
+button[type="submit"], .registerbtn {
+    background-color: #3cb371; /* Medium sea green */
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 25px; /* Rounded button */
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s;
+    width: auto; /* Set width to auto to fit content */
+    min-width: 100px; /* Set a minimum width */
+    max-width: 150px; /* Set a maximum width */
+}
+
+    button[type="submit"]:hover, .registerbtn:hover {
+        background-color: #2e8b57; /* Darker green */
+        box-shadow: 0 4px 8px rgba(46, 139, 87, 0.2); /* Shadow effect on hover */
+    }
+
+
+/* Sidebar styles */
+.sidebar {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: rgba(17, 17, 17, 0.8); /* Semi-transparent black with blur */
+    backdrop-filter: blur(8px); /* Blur effect */
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+
+    .sidebar a {
+        padding: 10px 15px;
+        text-decoration: none;
+        font-size: 18px;
+        color: #818181;
+        display: block;
+        transition: 0.3s;
+    }
+
+        .sidebar a:hover {
+            color: #f1f1f1;
+        }
+
+    .sidebar .closebtn {
+        position: absolute;
+        top: 0;
+        right: 25px;
+        font-size: 36px;
+        margin-left: 50px;
+    }
+
+.openbtn {
+    font-size: 20px;
+    cursor: pointer;
+    background-color: #111;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    z-index: 1001;
+}
+
+#main {
+    transition: margin-left 0.5s;
+    padding: 16px;
+}
+
+/* Error message styling */
+.error {
+    color: red;
+    margin-top: 10px;
+}
+
+/* Table styles for patient records */
+.styled-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+    .styled-table thead {
+        background-color: rgba(0, 123, 255, 0.8); /* Blue with opacity */
+        color: white;
+        text-align: left;
+        backdrop-filter: blur(4px); /* Blur effect */
+    }
+
+
+    .styled-table th, .styled-table td {
+        text-align: left; /* Align all table headers and data to the left */
+        padding: 12px 15px;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .styled-table th {
+        font-weight: bold;
+    }
+
+    .styled-table tbody tr:nth-child(even) {
+        background-color: rgba(249, 249, 249, 0.8);
+    }
+
+    .styled-table tbody tr:nth-child(odd) {
+        background-color: rgba(255, 255, 255, 0.8);
+    }
+
+    .styled-table tbody tr:hover {
+        background-color: rgba(232, 240, 254, 0.8);
+    }
+
+.calendar {
+    max-width: 800px;
+    margin: auto;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+.available {
+    background-color: #28a745; /* Green for available slots */
+    color: #fff;
+    cursor: pointer;
+}
+
+.selected {
+    background-color: #007bff; /* Blue for selected slot */
+    color: #fff;
+}
+
+.unavailable {
+    background-color: #dc3545; /* Red for unavailable slots */
+    color: #fff;
+    cursor: not-allowed;
+}
+
+td {
+    cursor: pointer;
+}
+
+    td:hover {
+        opacity: 0.8;
+    }

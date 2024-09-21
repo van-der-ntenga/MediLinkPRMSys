@@ -1,0 +1,281 @@
+﻿@model MediLinkCB.Models.PatientResidentialAddressNOKViewModel
+
+@{
+    ViewBag.Title = "Add New Patient";
+    ViewBag.ShowMenu = true;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm("Create", "Patients", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Registration</title>
+
+
+    <div class="background"></div>
+    <div class="container">
+        @*<centre>
+                <h1>Register</h1>
+            </centre>
+
+            <p>
+                <a href="#" class="img">
+                    <img src="@Url.Content("~/Content/clinic sign.png")" alt="Clinic Sign" id="header-photo">
+                </a>
+
+            </p>*@
+        <centre>
+            <h2>New Patient</h2>
+        </centre>
+
+        <hr>
+
+        <div class="form-group">
+            @Html.Label("SaID", "South African ID")
+            @*Html.EditorFor(model => model.SaID, new { htmlAttributes = new { @class = "form-control" } })*@
+            @Html.TextBoxFor(m => m.SaID, new { @class = "form-control", placeholder = "Enter ID number", @required = "required" })
+
+            @Html.ValidationMessageFor(m => m.SaID, "", new { @class = "text-danger" })
+        </div>
+
+
+        <div class="form-row">
+            <div class="form-group half-width">
+                @Html.Label("Name", "First Name")
+                @Html.TextBoxFor(m => m.PatientName, new { @class = "form-control", placeholder = "Enter first name", @required = "required" })
+            </div>
+
+            <div class="form-group half-width">
+                @Html.Label("Name", "Last Name")
+                @Html.TextBoxFor(m => m.PatientSurname, new { @class = "form-control", placeholder = "Enter last name", @required = "required" })
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group half-width">
+                <label for="DateOfBirth">Date of Birth</label>
+                @Html.TextBoxFor(m => m.DateOfBirth, "{0:yyyy-MM-dd}", new { @class = "form-control", type = "date", id = "DateOfBirth", @required = "required" })
+            </div>
+
+            <div class="form-group half-width">
+                <label for="Age">Age</label>
+                @Html.TextBoxFor(m => m.Age, new { @class = "form-control", type = "number", id = "Age", @readonly = "readonly" })
+            </div>
+        </div>
+
+
+
+        <div class="form-row">
+            <div class="form-group half-width">
+                @Html.Label("PatientHeight", "Height")
+                @Html.TextBoxFor(m => m.PatientHeight, new { @class = "form-control", type = "number", min = "0", step = "1", placeholder = "Height in cm", @required = "required" })
+            </div>
+
+            <div class="form-group half-width">
+                @Html.Label("PatientWeight", "Weight")
+                @Html.TextBoxFor(m => m.PatientWeight, new { @class = "form-control", type = "number", min = "0", step = "0.1", placeholder = "Weight in kg", @required = "required" })
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group half-width">
+                <label>Disability</label>
+                <div class="radio-group">
+                    @Html.RadioButton("disability", "yes", false, new { id = "disabilityYes", @onclick = "toggleDisabilityDetails()" })
+                    @Html.Label("disabilityYes", "Yes")
+                    @Html.RadioButton("disability", "no", true, new { id = "disabilityNo", @onclick = "toggleDisabilityDetails()" })
+                    @Html.Label("disabilityNo", "No")
+                </div>
+            </div>
+
+            <div class="form-group half-width">
+                @Html.Label("disabilityDetails", "If Yes, Specify Disability")
+                @Html.TextBoxFor(m => m.Disability, new { @id = "disabilityDetails", @placeholder = "Specify disability", @disabled = "disabled" })
+            </div>
+
+        </div>
+
+
+        <div class="form-row">
+            <div class="form-group half-width">
+                @Html.Label("Race", "Race")
+                @Html.DropDownListFor(m => m.Race, new SelectList(new[] { "Asian", "Black", "Coloured", "Indian", "White" }), "-- Select Race --", new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Race)
+            </div>
+            <div class="form-group half-width">
+                @Html.Label("Gender", "Gender")
+                @Html.DropDownListFor(m => m.Gender, new SelectList(new[] { "Male", "Female", "Other" }), "-- Select Gender --", new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Gender)
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group half-width">
+                @Html.Label("HomeLang", "Home Language")
+                @Html.DropDownListFor(m => m.HomeLang, new SelectList(new[] { "English", "IsiZulu", "IsiXhosa", "Afrikaans", "Sesotho", "Setswana", "IsiNdebele", "Siswati", "Tshivenda", "Xitsonga", "Other" }), "--Select Language--")
+            </div>
+            <div class="form-group half-width">
+                @Html.Label("Marital", "Marital Status")
+                @Html.DropDownListFor(m => m.MaritalStatus, new SelectList(new[] { "Single", "Married", "Widowed", "Divorced" }), "--Select Marital Status--")
+            </div>
+        </div>
+
+
+
+
+        <div class="form-row">
+            <div class="form-group half-width">
+                @Html.Label("EmailAddress", "Email Address")
+                @Html.TextBoxFor(m => m.EmailAddress, new { @class = "form-control", @placeholder = "Enter Email Address", @type = "email" })
+            </div>
+
+            <div class="form-group half-width">
+                @Html.Label("CellNumber", "Cellphone Number")
+
+                @Html.TextBoxFor(m => m.CellNumber, new { @class = "form-control", @placeholder = "Enter Cellphone Number", @type = "tel" })
+            </div>
+        </div>
+
+
+
+
+
+
+
+        <h2>Residential Address</h2>
+
+
+        <div class="form-row">
+            <div class="form-group half-width">
+                @Html.Label("streetNumber", "Street Address")
+                @Html.TextBoxFor(m => m.StreetAddress, new { @id = "streetNumber", @placeholder = "Enter street name", @required = "required" })
+            </div>
+            <div class="form-group half-width">
+                @Html.Label("suburb", "Suburb")
+                @Html.TextBoxFor(m => m.Suburb, new { @id = "suburb", @placeholder = "Enter suburb", @required = "required" })
+            </div>
+        </div>
+
+
+
+        <div class="form-row">
+            <div class="form-group half-width">
+                @Html.Label("townCity", "Town/City")
+                @Html.TextBoxFor(m => m.City, new { @id = "townCity", @placeholder = "Enter town or city", @required = "required" })
+            </div>
+            <div class="form-group half-width">
+                @Html.Label("postalCode", "Postal Code")
+                @Html.TextBoxFor(m => m.PostalCode, new { @id = "postalCode", @placeholder = "Enter postal code", @required = "required" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.Label("Prov", "Province")
+            @Html.DropDownListFor(m => m.Province, new SelectList(new[] { "Eastern Cape", "Free State", "Gauteng", "KwaZulu-Natal", "Limpopo", "North West", "Mpumalanga", "Northern Cape", "Western Cape" }), "--Select Province--")
+        </div>
+
+
+        <h2>Next of Kin</h2>
+        <div class="form-row">
+            <div class="form-group half-width">
+                @Html.Label("kinName", "First Name")
+                @Html.TextBoxFor(m => m.NOKFirstName, new { @placeholder = "Enter first name", @required = "required" })
+            </div>
+
+            <div class="form-group half-width">
+                @Html.Label("kinSurname", "Surname")
+                @Html.TextBoxFor(m => m.NOKLastName, new { @placeholder = "Enter surname", @required = "required" })
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group half-width">
+                @Html.Label("kinPhoneNumber", "Phone Number")
+                @Html.TextBoxFor(m => m.NOKCellNumber, new { @placeholder = "Enter phone number", @required = "required", @type = "tel" })
+            </div>
+            <div class="form-group half-width">
+                @Html.Label("kinRelationship", "Relationship")
+                @Html.DropDownListFor(m => m.Relationship, new SelectList(new[] { "Mother", "Father", "Guardian", "Brother", "Sister", "Grandfather", "Grandmother" }), "--Select Relationship--", new { @class = "form-control" })
+            </div>
+        </div>
+
+
+        <hr>
+        <centre>
+            <button type="submit" class="btn btn-primary">Register</button>
+        </centre>
+
+
+        <div class="container signin">
+            <a href="#" class="img"><img src="@Url.Content("~/Content/health logo.png")" alt="Health Logo" id="footer"></a>
+        </div>
+    </div>
+}
+
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const dateOfBirthInput = document.getElementById('DateOfBirth');
+        const ageInput = document.getElementById('Age');
+
+        dateOfBirthInput.addEventListener('change', function () {
+            const age = calculateAge(this.value);
+            ageInput.value = age; // Update the Age field
+        });
+
+        function calculateAge(dateOfBirth) {
+            const dob = new Date(dateOfBirth);
+            const diffMs = Date.now() - dob.getTime();
+            const ageDt = new Date(diffMs);
+
+            return Math.abs(ageDt.getUTCFullYear() - 1970);
+        }
+    });
+
+    function toggleDisabilityDetails() {
+        var disabilityYes = document.getElementById('disabilityYes');
+        var disabilityDetails = document.getElementById('disabilityDetails');
+
+        if (disabilityYes.checked) {
+            disabilityDetails.removeAttribute('disabled');
+            disabilityDetails.focus(); // Optionally focus the input when enabling
+        } else {
+            disabilityDetails.setAttribute('disabled', 'disabled');
+            disabilityDetails.value = ''; // Clear the input if disabled
+        }
+    }
+
+    // Call the function once on page load to set the correct initial state
+    document.addEventListener('DOMContentLoaded', function () {
+        toggleDisabilityDetails();
+    });
+</script>
+
+@section Scripts {
+    <script type="text/javascript">
+        function toggleDisabilityDetails() {
+            var disabilityYes = document.getElementById('disabilityYes');
+            var disabilityNo = document.getElementById('disabilityNo');
+            var disabilityDetails = document.getElementById('disabilityDetails');
+
+            if (disabilityYes.checked) {
+                disabilityDetails.removeAttribute('disabled');
+                disabilityDetails.value = ''; // Clear the input when "Yes" is selected
+            } else if (disabilityNo.checked) {
+                disabilityDetails.setAttribute('disabled', 'disabled');
+                disabilityDetails.value = 'NONE'; // Set the value to "NONE" when "No" is selected
+            }
+        }
+
+        // Ensure the correct state of the textbox on page load
+        document.addEventListener('DOMContentLoaded', function () {
+            toggleDisabilityDetails();
+        });
+    </script>
+}
+
+

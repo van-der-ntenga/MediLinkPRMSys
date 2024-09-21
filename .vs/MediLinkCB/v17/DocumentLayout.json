@@ -1,0 +1,902 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\sibon\\source\\repos\\MediLinkCB\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{15C6A041-33B4-4FC1-87B6-FE38DAF59394}|..\\MyApp.Tests\\MyApp.Tests.csproj|c:\\users\\sibon\\source\\repos\\myapp.tests\\appointmentscontrollertests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E3D17D4D-D100-41DA-BBCB-250CA481D473}|MediLinkCB.csproj|c:\\users\\sibon\\source\\repos\\medilinkcb\\views\\appointments\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{E3D17D4D-D100-41DA-BBCB-250CA481D473}|MediLinkCB.csproj|solutionrelative:views\\appointments\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E3D17D4D-D100-41DA-BBCB-250CA481D473}|MediLinkCB.csproj|C:\\Users\\sibon\\source\\repos\\MediLinkCB\\views\\patients\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{E3D17D4D-D100-41DA-BBCB-250CA481D473}|MediLinkCB.csproj|solutionrelative:views\\patients\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E3D17D4D-D100-41DA-BBCB-250CA481D473}|MediLinkCB.csproj|C:\\Users\\sibon\\source\\repos\\MediLinkCB\\views\\patients\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{E3D17D4D-D100-41DA-BBCB-250CA481D473}|MediLinkCB.csproj|solutionrelative:views\\patients\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E3D17D4D-D100-41DA-BBCB-250CA481D473}|MediLinkCB.csproj|C:\\Users\\sibon\\source\\repos\\MediLinkCB\\views\\appointments\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{E3D17D4D-D100-41DA-BBCB-250CA481D473}|MediLinkCB.csproj|solutionrelative:views\\appointments\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E3D17D4D-D100-41DA-BBCB-250CA481D473}|MediLinkCB.csproj|C:\\Users\\sibon\\source\\repos\\MediLinkCB\\views\\login\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{E3D17D4D-D100-41DA-BBCB-250CA481D473}|MediLinkCB.csproj|solutionrelative:views\\login\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{15C6A041-33B4-4FC1-87B6-FE38DAF59394}|..\\MyApp.Tests\\MyApp.Tests.csproj|c:\\users\\sibon\\source\\repos\\myapp.tests\\patientscontrollertests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E3D17D4D-D100-41DA-BBCB-250CA481D473}|MediLinkCB.csproj|c:\\users\\sibon\\source\\repos\\medilinkcb\\views\\appointments\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{E3D17D4D-D100-41DA-BBCB-250CA481D473}|MediLinkCB.csproj|solutionrelative:views\\appointments\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E3D17D4D-D100-41DA-BBCB-250CA481D473}|MediLinkCB.csproj|C:\\Users\\sibon\\source\\repos\\MediLinkCB\\views\\appointments\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{E3D17D4D-D100-41DA-BBCB-250CA481D473}|MediLinkCB.csproj|solutionrelative:views\\appointments\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E3D17D4D-D100-41DA-BBCB-250CA481D473}|MediLinkCB.csproj|C:\\Users\\sibon\\source\\repos\\MediLinkCB\\views\\appointments\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{E3D17D4D-D100-41DA-BBCB-250CA481D473}|MediLinkCB.csproj|solutionrelative:views\\appointments\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E3D17D4D-D100-41DA-BBCB-250CA481D473}|MediLinkCB.csproj|C:\\Users\\sibon\\source\\repos\\MediLinkCB\\controllers\\userprofilescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E3D17D4D-D100-41DA-BBCB-250CA481D473}|MediLinkCB.csproj|solutionrelative:controllers\\userprofilescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E3D17D4D-D100-41DA-BBCB-250CA481D473}|MediLinkCB.csproj|C:\\Users\\sibon\\source\\repos\\MediLinkCB\\controllers\\patientscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E3D17D4D-D100-41DA-BBCB-250CA481D473}|MediLinkCB.csproj|solutionrelative:controllers\\patientscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E3D17D4D-D100-41DA-BBCB-250CA481D473}|MediLinkCB.csproj|C:\\Users\\sibon\\source\\repos\\MediLinkCB\\controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E3D17D4D-D100-41DA-BBCB-250CA481D473}|MediLinkCB.csproj|solutionrelative:controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E3D17D4D-D100-41DA-BBCB-250CA481D473}|MediLinkCB.csproj|C:\\Users\\sibon\\source\\repos\\MediLinkCB\\controllers\\appointmentscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E3D17D4D-D100-41DA-BBCB-250CA481D473}|MediLinkCB.csproj|solutionrelative:controllers\\appointmentscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E3D17D4D-D100-41DA-BBCB-250CA481D473}|MediLinkCB.csproj|c:\\users\\sibon\\source\\repos\\medilinkcb\\models\\model1.edmx||{C99AEA30-8E36-4515-B76F-496F5A48A6AA}|",
+      "RelativeMoniker": "D:0:0:{E3D17D4D-D100-41DA-BBCB-250CA481D473}|MediLinkCB.csproj|solutionrelative:models\\model1.edmx||{C99AEA30-8E36-4515-B76F-496F5A48A6AA}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E3D17D4D-D100-41DA-BBCB-250CA481D473}|MediLinkCB.csproj|c:\\users\\sibon\\source\\repos\\medilinkcb\\views\\patients\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{E3D17D4D-D100-41DA-BBCB-250CA481D473}|MediLinkCB.csproj|solutionrelative:views\\patients\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E3D17D4D-D100-41DA-BBCB-250CA481D473}|MediLinkCB.csproj|C:\\Users\\sibon\\source\\repos\\MediLinkCB\\views\\userprofiles\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{E3D17D4D-D100-41DA-BBCB-250CA481D473}|MediLinkCB.csproj|solutionrelative:views\\userprofiles\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E3D17D4D-D100-41DA-BBCB-250CA481D473}|MediLinkCB.csproj|C:\\Users\\sibon\\source\\repos\\MediLinkCB\\views\\shared\\_mainmenu.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{E3D17D4D-D100-41DA-BBCB-250CA481D473}|MediLinkCB.csproj|solutionrelative:views\\shared\\_mainmenu.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E3D17D4D-D100-41DA-BBCB-250CA481D473}|MediLinkCB.csproj|C:\\Users\\sibon\\source\\repos\\MediLinkCB\\views\\login\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{E3D17D4D-D100-41DA-BBCB-250CA481D473}|MediLinkCB.csproj|solutionrelative:views\\login\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E3D17D4D-D100-41DA-BBCB-250CA481D473}|MediLinkCB.csproj|C:\\Users\\sibon\\source\\repos\\MediLinkCB\\views\\patients\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{E3D17D4D-D100-41DA-BBCB-250CA481D473}|MediLinkCB.csproj|solutionrelative:views\\patients\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E3D17D4D-D100-41DA-BBCB-250CA481D473}|MediLinkCB.csproj|C:\\Users\\sibon\\source\\repos\\MediLinkCB\\views\\login\\maindashboard.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{E3D17D4D-D100-41DA-BBCB-250CA481D473}|MediLinkCB.csproj|solutionrelative:views\\login\\maindashboard.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E3D17D4D-D100-41DA-BBCB-250CA481D473}|MediLinkCB.csproj|C:\\Users\\sibon\\source\\repos\\MediLinkCB\\models\\patientresidentialaddressnokviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E3D17D4D-D100-41DA-BBCB-250CA481D473}|MediLinkCB.csproj|solutionrelative:models\\patientresidentialaddressnokviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E3D17D4D-D100-41DA-BBCB-250CA481D473}|MediLinkCB.csproj|C:\\Users\\sibon\\source\\repos\\MediLinkCB\\views\\userprofiles\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{E3D17D4D-D100-41DA-BBCB-250CA481D473}|MediLinkCB.csproj|solutionrelative:views\\userprofiles\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E3D17D4D-D100-41DA-BBCB-250CA481D473}|MediLinkCB.csproj|C:\\Users\\sibon\\source\\repos\\MediLinkCB\\views\\userprofiles\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{E3D17D4D-D100-41DA-BBCB-250CA481D473}|MediLinkCB.csproj|solutionrelative:views\\userprofiles\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E3D17D4D-D100-41DA-BBCB-250CA481D473}|MediLinkCB.csproj|C:\\Users\\sibon\\source\\repos\\MediLinkCB\\views\\login\\adduser.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{E3D17D4D-D100-41DA-BBCB-250CA481D473}|MediLinkCB.csproj|solutionrelative:views\\login\\adduser.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E3D17D4D-D100-41DA-BBCB-250CA481D473}|MediLinkCB.csproj|C:\\Users\\sibon\\source\\repos\\MediLinkCB\\content\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{E3D17D4D-D100-41DA-BBCB-250CA481D473}|MediLinkCB.csproj|solutionrelative:content\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E3D17D4D-D100-41DA-BBCB-250CA481D473}|MediLinkCB.csproj|C:\\Users\\sibon\\source\\repos\\MediLinkCB\\views\\shared\\_menu.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{E3D17D4D-D100-41DA-BBCB-250CA481D473}|MediLinkCB.csproj|solutionrelative:views\\shared\\_menu.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E3D17D4D-D100-41DA-BBCB-250CA481D473}|MediLinkCB.csproj|C:\\Users\\sibon\\source\\repos\\MediLinkCB\\views\\login\\dashboard.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{E3D17D4D-D100-41DA-BBCB-250CA481D473}|MediLinkCB.csproj|solutionrelative:views\\login\\dashboard.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E3D17D4D-D100-41DA-BBCB-250CA481D473}|MediLinkCB.csproj|C:\\Users\\sibon\\source\\repos\\MediLinkCB\\views\\login\\admindashboard.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{E3D17D4D-D100-41DA-BBCB-250CA481D473}|MediLinkCB.csproj|solutionrelative:views\\login\\admindashboard.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E3D17D4D-D100-41DA-BBCB-250CA481D473}|MediLinkCB.csproj|C:\\Users\\sibon\\source\\repos\\MediLinkCB\\views\\shared\\_sidebar.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{E3D17D4D-D100-41DA-BBCB-250CA481D473}|MediLinkCB.csproj|solutionrelative:views\\shared\\_sidebar.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E3D17D4D-D100-41DA-BBCB-250CA481D473}|MediLinkCB.csproj|C:\\Users\\sibon\\source\\repos\\MediLinkCB\\views\\shared\\_usertable.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{E3D17D4D-D100-41DA-BBCB-250CA481D473}|MediLinkCB.csproj|solutionrelative:views\\shared\\_usertable.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E3D17D4D-D100-41DA-BBCB-250CA481D473}|MediLinkCB.csproj|C:\\Users\\sibon\\source\\repos\\MediLinkCB\\views\\shared\\_searchbar.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{E3D17D4D-D100-41DA-BBCB-250CA481D473}|MediLinkCB.csproj|solutionrelative:views\\shared\\_searchbar.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E3D17D4D-D100-41DA-BBCB-250CA481D473}|MediLinkCB.csproj|C:\\Users\\sibon\\source\\repos\\MediLinkCB\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{E3D17D4D-D100-41DA-BBCB-250CA481D473}|MediLinkCB.csproj|solutionrelative:views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E3D17D4D-D100-41DA-BBCB-250CA481D473}|MediLinkCB.csproj|C:\\Users\\sibon\\source\\repos\\MediLinkCB\\scripts\\appointment-calendar.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{E3D17D4D-D100-41DA-BBCB-250CA481D473}|MediLinkCB.csproj|solutionrelative:scripts\\appointment-calendar.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E3D17D4D-D100-41DA-BBCB-250CA481D473}|MediLinkCB.csproj|C:\\Users\\sibon\\source\\repos\\MediLinkCB\\views\\login\\clerkdashboard.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{E3D17D4D-D100-41DA-BBCB-250CA481D473}|MediLinkCB.csproj|solutionrelative:views\\login\\clerkdashboard.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E3D17D4D-D100-41DA-BBCB-250CA481D473}|MediLinkCB.csproj|C:\\Users\\sibon\\source\\repos\\MediLinkCB\\views\\userprofiles\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{E3D17D4D-D100-41DA-BBCB-250CA481D473}|MediLinkCB.csproj|solutionrelative:views\\userprofiles\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E3D17D4D-D100-41DA-BBCB-250CA481D473}|MediLinkCB.csproj|C:\\Users\\sibon\\source\\repos\\MediLinkCB\\views\\patients\\appointment.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{E3D17D4D-D100-41DA-BBCB-250CA481D473}|MediLinkCB.csproj|solutionrelative:views\\patients\\appointment.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E3D17D4D-D100-41DA-BBCB-250CA481D473}|MediLinkCB.csproj|C:\\Users\\sibon\\source\\repos\\MediLinkCB\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{E3D17D4D-D100-41DA-BBCB-250CA481D473}|MediLinkCB.csproj|solutionrelative:web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E3D17D4D-D100-41DA-BBCB-250CA481D473}|MediLinkCB.csproj|C:\\Users\\sibon\\source\\repos\\MediLinkCB\\views\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{E3D17D4D-D100-41DA-BBCB-250CA481D473}|MediLinkCB.csproj|solutionrelative:views\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E3D17D4D-D100-41DA-BBCB-250CA481D473}|MediLinkCB.csproj|C:\\Users\\sibon\\source\\repos\\MediLinkCB\\views\\shared\\_patienttable.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{E3D17D4D-D100-41DA-BBCB-250CA481D473}|MediLinkCB.csproj|solutionrelative:views\\shared\\_patienttable.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E3D17D4D-D100-41DA-BBCB-250CA481D473}|MediLinkCB.csproj|C:\\Users\\sibon\\source\\repos\\MediLinkCB\\views\\patients\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{E3D17D4D-D100-41DA-BBCB-250CA481D473}|MediLinkCB.csproj|solutionrelative:views\\patients\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E3D17D4D-D100-41DA-BBCB-250CA481D473}|MediLinkCB.csproj|C:\\Users\\sibon\\source\\repos\\MediLinkCB\\views\\login\\verifyotp.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{E3D17D4D-D100-41DA-BBCB-250CA481D473}|MediLinkCB.csproj|solutionrelative:views\\login\\verifyotp.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E3D17D4D-D100-41DA-BBCB-250CA481D473}|MediLinkCB.csproj|C:\\Users\\sibon\\source\\repos\\MediLinkCB\\views\\login\\resetpassword.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{E3D17D4D-D100-41DA-BBCB-250CA481D473}|MediLinkCB.csproj|solutionrelative:views\\login\\resetpassword.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E3D17D4D-D100-41DA-BBCB-250CA481D473}|MediLinkCB.csproj|C:\\Users\\sibon\\source\\repos\\MediLinkCB\\views\\userprofiles\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{E3D17D4D-D100-41DA-BBCB-250CA481D473}|MediLinkCB.csproj|solutionrelative:views\\userprofiles\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E3D17D4D-D100-41DA-BBCB-250CA481D473}|MediLinkCB.csproj|C:\\Users\\sibon\\source\\repos\\MediLinkCB\\favicon.ico||{177559E0-D141-11D0-92DF-00A0C9138C45}",
+      "RelativeMoniker": "D:0:0:{E3D17D4D-D100-41DA-BBCB-250CA481D473}|MediLinkCB.csproj|solutionrelative:favicon.ico||{177559E0-D141-11D0-92DF-00A0C9138C45}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E3D17D4D-D100-41DA-BBCB-250CA481D473}|MediLinkCB.csproj|C:\\Users\\sibon\\source\\repos\\MediLinkCB\\app_start\\filterconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E3D17D4D-D100-41DA-BBCB-250CA481D473}|MediLinkCB.csproj|solutionrelative:app_start\\filterconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E3D17D4D-D100-41DA-BBCB-250CA481D473}|MediLinkCB.csproj|C:\\Users\\sibon\\source\\repos\\MediLinkCB\\global.asax.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E3D17D4D-D100-41DA-BBCB-250CA481D473}|MediLinkCB.csproj|solutionrelative:global.asax.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E3D17D4D-D100-41DA-BBCB-250CA481D473}|MediLinkCB.csproj|C:\\Users\\sibon\\source\\repos\\MediLinkCB\\attributes\\customauthorizeattribute.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E3D17D4D-D100-41DA-BBCB-250CA481D473}|MediLinkCB.csproj|solutionrelative:attributes\\customauthorizeattribute.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E3D17D4D-D100-41DA-BBCB-250CA481D473}|MediLinkCB.csproj|C:\\Users\\sibon\\source\\repos\\MediLinkCB\\web.debug.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{E3D17D4D-D100-41DA-BBCB-250CA481D473}|MediLinkCB.csproj|solutionrelative:web.debug.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E3D17D4D-D100-41DA-BBCB-250CA481D473}|MediLinkCB.csproj|C:\\Users\\sibon\\source\\repos\\MediLinkCB\\views\\login\\forgotpassword.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{E3D17D4D-D100-41DA-BBCB-250CA481D473}|MediLinkCB.csproj|solutionrelative:views\\login\\forgotpassword.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E3D17D4D-D100-41DA-BBCB-250CA481D473}|MediLinkCB.csproj|C:\\Users\\sibon\\source\\repos\\MediLinkCB\\app_start\\routeconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E3D17D4D-D100-41DA-BBCB-250CA481D473}|MediLinkCB.csproj|solutionrelative:app_start\\routeconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\sibon\\source\\repos\\MediLinkCB\\Views\\Patients\\_SearchBar.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Views\\Patients\\_SearchBar.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 216,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "UserProfilesController.cs",
+              "DocumentMoniker": "C:\\Users\\sibon\\source\\repos\\MediLinkCB\\Controllers\\UserProfilesController.cs",
+              "RelativeDocumentMoniker": "Controllers\\UserProfilesController.cs",
+              "ToolTip": "C:\\Users\\sibon\\source\\repos\\MediLinkCB\\Controllers\\UserProfilesController.cs",
+              "RelativeToolTip": "Controllers\\UserProfilesController.cs",
+              "ViewState": "AQIAAH8AAAAAAAAAAAAAAA4AAABAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-28T12:47:43.922Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "AppointmentsControllerTests.cs",
+              "DocumentMoniker": "C:\\Users\\sibon\\source\\repos\\MyApp.Tests\\AppointmentsControllerTests.cs",
+              "RelativeDocumentMoniker": "..\\MyApp.Tests\\AppointmentsControllerTests.cs",
+              "ToolTip": "C:\\Users\\sibon\\source\\repos\\MyApp.Tests\\AppointmentsControllerTests.cs",
+              "RelativeToolTip": "..\\MyApp.Tests\\AppointmentsControllerTests.cs",
+              "ViewState": "AQIAAA8AAAAAAAAAAAAUwBIAAAAoAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-19T11:33:57.068Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "C:\\Users\\sibon\\source\\repos\\MediLinkCB\\Views\\Patients\\Edit.cshtml",
+              "RelativeDocumentMoniker": "Views\\Patients\\Edit.cshtml",
+              "ToolTip": "C:\\Users\\sibon\\source\\repos\\MediLinkCB\\Views\\Patients\\Edit.cshtml",
+              "RelativeToolTip": "Views\\Patients\\Edit.cshtml",
+              "ViewState": "AQIAAIYAAAAAAAAAAAAYwJEAAAAaAQAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-09-04T07:59:54.935Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "C:\\Users\\sibon\\source\\repos\\MediLinkCB\\Views\\Appointments\\Edit.cshtml",
+              "RelativeDocumentMoniker": "Views\\Appointments\\Edit.cshtml",
+              "ToolTip": "C:\\Users\\sibon\\source\\repos\\MediLinkCB\\Views\\Appointments\\Edit.cshtml",
+              "RelativeToolTip": "Views\\Appointments\\Edit.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACwAAAAOAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-09-19T12:43:51.429Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Login.cshtml",
+              "DocumentMoniker": "C:\\Users\\sibon\\source\\repos\\MediLinkCB\\Views\\Login\\Login.cshtml",
+              "RelativeDocumentMoniker": "Views\\Login\\Login.cshtml",
+              "ToolTip": "C:\\Users\\sibon\\source\\repos\\MediLinkCB\\Views\\Login\\Login.cshtml",
+              "RelativeToolTip": "Views\\Login\\Login.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAAXAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-08-26T15:10:15.394Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "PatientsControllerTests.cs",
+              "DocumentMoniker": "C:\\Users\\sibon\\source\\repos\\MyApp.Tests\\PatientsControllerTests.cs",
+              "RelativeDocumentMoniker": "..\\MyApp.Tests\\PatientsControllerTests.cs",
+              "ToolTip": "C:\\Users\\sibon\\source\\repos\\MyApp.Tests\\PatientsControllerTests.cs",
+              "RelativeToolTip": "..\\MyApp.Tests\\PatientsControllerTests.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABgAAAAyAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-19T11:25:16.884Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "C:\\Users\\sibon\\source\\repos\\MediLinkCB\\Views\\Appointments\\Create.cshtml",
+              "RelativeDocumentMoniker": "Views\\Appointments\\Create.cshtml",
+              "ToolTip": "C:\\Users\\sibon\\source\\repos\\MediLinkCB\\Views\\Appointments\\Create.cshtml",
+              "RelativeToolTip": "Views\\Appointments\\Create.cshtml",
+              "ViewState": "AQIAABsAAABAmZmZmZkVwCIAAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-09-17T18:42:11.226Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "PatientsController.cs",
+              "DocumentMoniker": "C:\\Users\\sibon\\source\\repos\\MediLinkCB\\Controllers\\PatientsController.cs",
+              "RelativeDocumentMoniker": "Controllers\\PatientsController.cs",
+              "ToolTip": "C:\\Users\\sibon\\source\\repos\\MediLinkCB\\Controllers\\PatientsController.cs",
+              "RelativeToolTip": "Controllers\\PatientsController.cs",
+              "ViewState": "AQIAAGUAAAAAZmZmZmYkwBQAAABAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-30T15:31:25.131Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Details.cshtml",
+              "DocumentMoniker": "C:\\Users\\sibon\\source\\repos\\MediLinkCB\\Views\\Patients\\Details.cshtml",
+              "RelativeDocumentMoniker": "Views\\Patients\\Details.cshtml",
+              "ToolTip": "C:\\Users\\sibon\\source\\repos\\MediLinkCB\\Views\\Patients\\Details.cshtml",
+              "RelativeToolTip": "Views\\Patients\\Details.cshtml",
+              "ViewState": "AQIAAFMAAAAAaGZmZmYOwGIAAAA0AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-09-04T08:03:17.229Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Delete.cshtml",
+              "DocumentMoniker": "C:\\Users\\sibon\\source\\repos\\MediLinkCB\\Views\\Appointments\\Delete.cshtml",
+              "RelativeDocumentMoniker": "Views\\Appointments\\Delete.cshtml",
+              "ToolTip": "C:\\Users\\sibon\\source\\repos\\MediLinkCB\\Views\\Appointments\\Delete.cshtml",
+              "RelativeToolTip": "Views\\Appointments\\Delete.cshtml",
+              "ViewState": "AQIAABcAAACgzMzMzMwswCMAAAANAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-09-19T12:45:10.77Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "LoginController.cs",
+              "DocumentMoniker": "C:\\Users\\sibon\\source\\repos\\MediLinkCB\\Controllers\\LoginController.cs",
+              "RelativeDocumentMoniker": "Controllers\\LoginController.cs",
+              "ToolTip": "C:\\Users\\sibon\\source\\repos\\MediLinkCB\\Controllers\\LoginController.cs",
+              "RelativeToolTip": "Controllers\\LoginController.cs",
+              "ViewState": "AQIAAEsBAAAAy8zMzMwkwDkBAABDAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-26T14:40:32.696Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Details.cshtml",
+              "DocumentMoniker": "C:\\Users\\sibon\\source\\repos\\MediLinkCB\\Views\\Appointments\\Details.cshtml",
+              "RelativeDocumentMoniker": "Views\\Appointments\\Details.cshtml",
+              "ToolTip": "C:\\Users\\sibon\\source\\repos\\MediLinkCB\\Views\\Appointments\\Details.cshtml",
+              "RelativeToolTip": "Views\\Appointments\\Details.cshtml",
+              "ViewState": "AQIAABYAAAAAAAAAAAAAABUAAABDAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-09-19T08:36:18.402Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "AppointmentsController.cs",
+              "DocumentMoniker": "C:\\Users\\sibon\\source\\repos\\MediLinkCB\\Controllers\\AppointmentsController.cs",
+              "RelativeDocumentMoniker": "Controllers\\AppointmentsController.cs",
+              "ToolTip": "C:\\Users\\sibon\\source\\repos\\MediLinkCB\\Controllers\\AppointmentsController.cs",
+              "RelativeToolTip": "Controllers\\AppointmentsController.cs",
+              "ViewState": "AQIAAFkAAABAmpmZmZkrwEYAAABqAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-17T18:35:29.252Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\sibon\\source\\repos\\MediLinkCB\\Views\\Appointments\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\Appointments\\Index.cshtml",
+              "ToolTip": "C:\\Users\\sibon\\source\\repos\\MediLinkCB\\Views\\Appointments\\Index.cshtml",
+              "RelativeToolTip": "Views\\Appointments\\Index.cshtml",
+              "ViewState": "AQIAABAAAABgZmZmZmYqwBsAAABKAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-09-17T18:46:51.447Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "Model1.edmx [Diagram1]",
+              "DocumentMoniker": "C:\\Users\\sibon\\source\\repos\\MediLinkCB\\Models\\Model1.edmx",
+              "RelativeDocumentMoniker": "Models\\Model1.edmx",
+              "ToolTip": "C:\\Users\\sibon\\source\\repos\\MediLinkCB\\Models\\Model1.edmx [Diagram1]",
+              "RelativeToolTip": "Models\\Model1.edmx [Diagram1]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001116|",
+              "WhenOpened": "2024-09-19T12:40:35.178Z",
+              "EditorCaption": " [Diagram1]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\sibon\\source\\repos\\MediLinkCB\\Views\\Login\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\Login\\Index.cshtml",
+              "ToolTip": "C:\\Users\\sibon\\source\\repos\\MediLinkCB\\Views\\Login\\Index.cshtml",
+              "RelativeToolTip": "Views\\Login\\Index.cshtml",
+              "ViewState": "AQIAACIAAAAAAAAAAAAcwCMAAAAhAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-09-19T10:46:14.904Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "C:\\Users\\sibon\\source\\repos\\MediLinkCB\\Views\\UserProfiles\\Create.cshtml",
+              "RelativeDocumentMoniker": "Views\\UserProfiles\\Create.cshtml",
+              "ToolTip": "C:\\Users\\sibon\\source\\repos\\MediLinkCB\\Views\\UserProfiles\\Create.cshtml",
+              "RelativeToolTip": "Views\\UserProfiles\\Create.cshtml",
+              "ViewState": "AQIAACUAAABAMzMzMzMhwB8AAAA7AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-08-28T12:53:18.765Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "Details.cshtml",
+              "DocumentMoniker": "C:\\Users\\sibon\\source\\repos\\MediLinkCB\\Views\\UserProfiles\\Details.cshtml",
+              "RelativeDocumentMoniker": "Views\\UserProfiles\\Details.cshtml",
+              "ToolTip": "C:\\Users\\sibon\\source\\repos\\MediLinkCB\\Views\\UserProfiles\\Details.cshtml",
+              "RelativeToolTip": "Views\\UserProfiles\\Details.cshtml",
+              "ViewState": "AQIAABQAAAAAAAAAAAAQwCcAAAACAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-08-28T16:10:37.699Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "C:\\Users\\sibon\\source\\repos\\MediLinkCB\\Views\\Patients\\Create.cshtml",
+              "RelativeDocumentMoniker": "Views\\Patients\\Create.cshtml",
+              "ToolTip": "C:\\Users\\sibon\\source\\repos\\MediLinkCB\\Views\\Patients\\Create.cshtml",
+              "RelativeToolTip": "Views\\Patients\\Create.cshtml",
+              "ViewState": "AQIAAFIAAAAAAQAAAAAgwGIAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-08-30T15:32:15.01Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "_MainMenu.cshtml",
+              "DocumentMoniker": "C:\\Users\\sibon\\source\\repos\\MediLinkCB\\Views\\Shared\\_MainMenu.cshtml",
+              "RelativeDocumentMoniker": "Views\\Shared\\_MainMenu.cshtml",
+              "ToolTip": "C:\\Users\\sibon\\source\\repos\\MediLinkCB\\Views\\Shared\\_MainMenu.cshtml",
+              "RelativeToolTip": "Views\\Shared\\_MainMenu.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAArAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-09-17T19:26:14.575Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "MainDashboard.cshtml",
+              "DocumentMoniker": "C:\\Users\\sibon\\source\\repos\\MediLinkCB\\Views\\Login\\MainDashboard.cshtml",
+              "RelativeDocumentMoniker": "Views\\Login\\MainDashboard.cshtml",
+              "ToolTip": "C:\\Users\\sibon\\source\\repos\\MediLinkCB\\Views\\Login\\MainDashboard.cshtml",
+              "RelativeToolTip": "Views\\Login\\MainDashboard.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAAcAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-08-26T19:38:55.855Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\sibon\\source\\repos\\MediLinkCB\\Views\\Patients\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\Patients\\Index.cshtml",
+              "ToolTip": "C:\\Users\\sibon\\source\\repos\\MediLinkCB\\Views\\Patients\\Index.cshtml",
+              "RelativeToolTip": "Views\\Patients\\Index.cshtml",
+              "ViewState": "AQIAAB0AAACAmZmZmZkZwA0AAAAEAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-08-30T16:21:57.471Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "PatientResidentialAddressNOKViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\sibon\\source\\repos\\MediLinkCB\\Models\\PatientResidentialAddressNOKViewModel.cs",
+              "RelativeDocumentMoniker": "Models\\PatientResidentialAddressNOKViewModel.cs",
+              "ToolTip": "C:\\Users\\sibon\\source\\repos\\MediLinkCB\\Models\\PatientResidentialAddressNOKViewModel.cs",
+              "RelativeToolTip": "Models\\PatientResidentialAddressNOKViewModel.cs",
+              "ViewState": "AQIAABkAAAAAAAAAAAAgwB4AAAASAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-02T13:58:49.46Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "AddUser.cshtml",
+              "DocumentMoniker": "C:\\Users\\sibon\\source\\repos\\MediLinkCB\\Views\\Login\\AddUser.cshtml",
+              "RelativeDocumentMoniker": "Views\\Login\\AddUser.cshtml",
+              "ToolTip": "C:\\Users\\sibon\\source\\repos\\MediLinkCB\\Views\\Login\\AddUser.cshtml",
+              "RelativeToolTip": "Views\\Login\\AddUser.cshtml",
+              "ViewState": "AQIAAB4AAABgZmZmZmYqwBQAAAA1AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-08-26T15:06:17.573Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "C:\\Users\\sibon\\source\\repos\\MediLinkCB\\Views\\UserProfiles\\Edit.cshtml",
+              "RelativeDocumentMoniker": "Views\\UserProfiles\\Edit.cshtml",
+              "ToolTip": "C:\\Users\\sibon\\source\\repos\\MediLinkCB\\Views\\UserProfiles\\Edit.cshtml",
+              "RelativeToolTip": "Views\\UserProfiles\\Edit.cshtml",
+              "ViewState": "AQIAACkAAACAZmZmZmYowCsAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-08-28T16:10:48.285Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "site.css",
+              "DocumentMoniker": "C:\\Users\\sibon\\source\\repos\\MediLinkCB\\Content\\css\\site.css",
+              "RelativeDocumentMoniker": "Content\\css\\site.css",
+              "ToolTip": "C:\\Users\\sibon\\source\\repos\\MediLinkCB\\Content\\css\\site.css",
+              "RelativeToolTip": "Content\\css\\site.css",
+              "ViewState": "AQIAADUAAAAAYGZmZmYOwOIAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2024-08-26T15:01:38.113Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "_Menu.cshtml",
+              "DocumentMoniker": "C:\\Users\\sibon\\source\\repos\\MediLinkCB\\Views\\Shared\\_Menu.cshtml",
+              "RelativeDocumentMoniker": "Views\\Shared\\_Menu.cshtml",
+              "ToolTip": "C:\\Users\\sibon\\source\\repos\\MediLinkCB\\Views\\Shared\\_Menu.cshtml",
+              "RelativeToolTip": "Views\\Shared\\_Menu.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAuAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-08-28T18:39:30.407Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "Dashboard.cshtml",
+              "DocumentMoniker": "C:\\Users\\sibon\\source\\repos\\MediLinkCB\\Views\\Login\\Dashboard.cshtml",
+              "RelativeDocumentMoniker": "Views\\Login\\Dashboard.cshtml",
+              "ToolTip": "C:\\Users\\sibon\\source\\repos\\MediLinkCB\\Views\\Login\\Dashboard.cshtml",
+              "RelativeToolTip": "Views\\Login\\Dashboard.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-09-04T11:16:44.966Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "_Sidebar.cshtml",
+              "DocumentMoniker": "C:\\Users\\sibon\\source\\repos\\MediLinkCB\\Views\\Shared\\_Sidebar.cshtml",
+              "RelativeDocumentMoniker": "Views\\Shared\\_Sidebar.cshtml",
+              "ToolTip": "C:\\Users\\sibon\\source\\repos\\MediLinkCB\\Views\\Shared\\_Sidebar.cshtml",
+              "RelativeToolTip": "Views\\Shared\\_Sidebar.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABoAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-08-28T16:16:11.859Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "AdminDashboard.cshtml",
+              "DocumentMoniker": "C:\\Users\\sibon\\source\\repos\\MediLinkCB\\Views\\Login\\AdminDashboard.cshtml",
+              "RelativeDocumentMoniker": "Views\\Login\\AdminDashboard.cshtml",
+              "ToolTip": "C:\\Users\\sibon\\source\\repos\\MediLinkCB\\Views\\Login\\AdminDashboard.cshtml",
+              "RelativeToolTip": "Views\\Login\\AdminDashboard.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-08-26T15:37:34.552Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "_UserTable.cshtml",
+              "DocumentMoniker": "C:\\Users\\sibon\\source\\repos\\MediLinkCB\\Views\\Shared\\_UserTable.cshtml",
+              "RelativeDocumentMoniker": "Views\\Shared\\_UserTable.cshtml",
+              "ToolTip": "C:\\Users\\sibon\\source\\repos\\MediLinkCB\\Views\\Shared\\_UserTable.cshtml",
+              "RelativeToolTip": "Views\\Shared\\_UserTable.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-09-18T08:46:59.249Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
+              "Title": "_SearchBar.cshtml",
+              "DocumentMoniker": "C:\\Users\\sibon\\source\\repos\\MediLinkCB\\Views\\Shared\\_SearchBar.cshtml",
+              "RelativeDocumentMoniker": "Views\\Shared\\_SearchBar.cshtml",
+              "ToolTip": "C:\\Users\\sibon\\source\\repos\\MediLinkCB\\Views\\Shared\\_SearchBar.cshtml",
+              "RelativeToolTip": "Views\\Shared\\_SearchBar.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-09-17T19:20:19.173Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 32,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\sibon\\source\\repos\\MediLinkCB\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\sibon\\source\\repos\\MediLinkCB\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACIAAAAoAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-08-26T15:02:41.187Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 33,
+              "Title": "appointment-calendar.js",
+              "DocumentMoniker": "C:\\Users\\sibon\\source\\repos\\MediLinkCB\\Scripts\\appointment-calendar.js",
+              "RelativeDocumentMoniker": "Scripts\\appointment-calendar.js",
+              "ToolTip": "C:\\Users\\sibon\\source\\repos\\MediLinkCB\\Scripts\\appointment-calendar.js",
+              "RelativeToolTip": "Scripts\\appointment-calendar.js",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAEMAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2024-09-17T18:48:11.871Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 34,
+              "Title": "ClerkDashboard.cshtml",
+              "DocumentMoniker": "C:\\Users\\sibon\\source\\repos\\MediLinkCB\\Views\\Login\\ClerkDashboard.cshtml",
+              "RelativeDocumentMoniker": "Views\\Login\\ClerkDashboard.cshtml",
+              "ToolTip": "C:\\Users\\sibon\\source\\repos\\MediLinkCB\\Views\\Login\\ClerkDashboard.cshtml",
+              "RelativeToolTip": "Views\\Login\\ClerkDashboard.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACQAAAAiAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-08-28T11:57:38.052Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 35,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\sibon\\source\\repos\\MediLinkCB\\Views\\UserProfiles\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\UserProfiles\\Index.cshtml",
+              "ToolTip": "C:\\Users\\sibon\\source\\repos\\MediLinkCB\\Views\\UserProfiles\\Index.cshtml",
+              "RelativeToolTip": "Views\\UserProfiles\\Index.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAHAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-08-28T13:04:26.795Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 36,
+              "Title": "Appointment.cshtml",
+              "DocumentMoniker": "C:\\Users\\sibon\\source\\repos\\MediLinkCB\\Views\\Patients\\Appointment.cshtml",
+              "RelativeDocumentMoniker": "Views\\Patients\\Appointment.cshtml",
+              "ToolTip": "C:\\Users\\sibon\\source\\repos\\MediLinkCB\\Views\\Patients\\Appointment.cshtml",
+              "RelativeToolTip": "Views\\Patients\\Appointment.cshtml",
+              "ViewState": "AQIAAGYAAAAAAAAAAADwv2gAAAAgAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-09-17T18:25:47.539Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 38,
+              "Title": "Web.config",
+              "DocumentMoniker": "C:\\Users\\sibon\\source\\repos\\MediLinkCB\\Views\\Web.config",
+              "RelativeDocumentMoniker": "Views\\Web.config",
+              "ToolTip": "C:\\Users\\sibon\\source\\repos\\MediLinkCB\\Views\\Web.config",
+              "RelativeToolTip": "Views\\Web.config",
+              "ViewState": "AQIAABYAAAAAAAAAAAAAACwAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2024-08-30T17:41:43.211Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 37,
+              "Title": "Web.config",
+              "DocumentMoniker": "C:\\Users\\sibon\\source\\repos\\MediLinkCB\\Web.config",
+              "RelativeDocumentMoniker": "Web.config",
+              "ToolTip": "C:\\Users\\sibon\\source\\repos\\MediLinkCB\\Web.config",
+              "RelativeToolTip": "Web.config",
+              "ViewState": "AQIAABEAAAAAAAAAAAAkwCcAAAAdAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2024-08-28T11:34:35.416Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 39,
+              "Title": "_PatientTable.cshtml",
+              "DocumentMoniker": "C:\\Users\\sibon\\source\\repos\\MediLinkCB\\Views\\Shared\\_PatientTable.cshtml",
+              "RelativeDocumentMoniker": "Views\\Shared\\_PatientTable.cshtml",
+              "ToolTip": "C:\\Users\\sibon\\source\\repos\\MediLinkCB\\Views\\Shared\\_PatientTable.cshtml",
+              "RelativeToolTip": "Views\\Shared\\_PatientTable.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAADQAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-09-04T10:46:23.425Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 40,
+              "Title": "Delete.cshtml",
+              "DocumentMoniker": "C:\\Users\\sibon\\source\\repos\\MediLinkCB\\Views\\Patients\\Delete.cshtml",
+              "RelativeDocumentMoniker": "Views\\Patients\\Delete.cshtml",
+              "ToolTip": "C:\\Users\\sibon\\source\\repos\\MediLinkCB\\Views\\Patients\\Delete.cshtml",
+              "RelativeToolTip": "Views\\Patients\\Delete.cshtml",
+              "ViewState": "AQIAAEIAAAAAAAAAAIBJwEUAAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-09-03T08:37:47.973Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 41,
+              "Title": "VerifyOTP.cshtml",
+              "DocumentMoniker": "C:\\Users\\sibon\\source\\repos\\MediLinkCB\\Views\\Login\\VerifyOTP.cshtml",
+              "RelativeDocumentMoniker": "Views\\Login\\VerifyOTP.cshtml",
+              "ToolTip": "C:\\Users\\sibon\\source\\repos\\MediLinkCB\\Views\\Login\\VerifyOTP.cshtml",
+              "RelativeToolTip": "Views\\Login\\VerifyOTP.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABYAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-08-26T15:08:55.396Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 42,
+              "Title": "ResetPassword.cshtml",
+              "DocumentMoniker": "C:\\Users\\sibon\\source\\repos\\MediLinkCB\\Views\\Login\\ResetPassword.cshtml",
+              "RelativeDocumentMoniker": "Views\\Login\\ResetPassword.cshtml",
+              "ToolTip": "C:\\Users\\sibon\\source\\repos\\MediLinkCB\\Views\\Login\\ResetPassword.cshtml",
+              "RelativeToolTip": "Views\\Login\\ResetPassword.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABsAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-08-28T12:15:59.079Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 43,
+              "Title": "Delete.cshtml",
+              "DocumentMoniker": "C:\\Users\\sibon\\source\\repos\\MediLinkCB\\Views\\UserProfiles\\Delete.cshtml",
+              "RelativeDocumentMoniker": "Views\\UserProfiles\\Delete.cshtml",
+              "ToolTip": "C:\\Users\\sibon\\source\\repos\\MediLinkCB\\Views\\UserProfiles\\Delete.cshtml",
+              "RelativeToolTip": "Views\\UserProfiles\\Delete.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAEgAAAAvAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-08-28T16:10:28.586Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 51,
+              "Title": "_SearchBar.cshtml",
+              "DocumentMoniker": "C:\\Users\\sibon\\source\\repos\\MediLinkCB\\Views\\Patients\\_SearchBar.cshtml",
+              "RelativeDocumentMoniker": "Views\\Patients\\_SearchBar.cshtml",
+              "ToolTip": "C:\\Users\\sibon\\source\\repos\\MediLinkCB\\Views\\Patients\\_SearchBar.cshtml",
+              "RelativeToolTip": "Views\\Patients\\_SearchBar.cshtml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-09-02T15:49:33.012Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 44,
+              "Title": "favicon.ico -  [English (United Kingdom)] - Icon [16x16, 32 bit, BMP]",
+              "DocumentMoniker": "C:\\Users\\sibon\\source\\repos\\MediLinkCB\\favicon.ico",
+              "RelativeDocumentMoniker": "favicon.ico",
+              "ToolTip": "C:\\Users\\sibon\\source\\repos\\MediLinkCB\\favicon.ico -  [English (United Kingdom)] - Icon [16x16, 32 bit, BMP]",
+              "RelativeToolTip": "favicon.ico -  [English (United Kingdom)] - Icon [16x16, 32 bit, BMP]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001525|",
+              "WhenOpened": "2024-08-30T20:00:20.026Z",
+              "EditorCaption": " -  [English (United Kingdom)] - Icon [16x16, 32 bit, BMP]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 46,
+              "Title": "Global.asax.cs",
+              "DocumentMoniker": "C:\\Users\\sibon\\source\\repos\\MediLinkCB\\Global.asax.cs",
+              "RelativeDocumentMoniker": "Global.asax.cs",
+              "ToolTip": "C:\\Users\\sibon\\source\\repos\\MediLinkCB\\Global.asax.cs",
+              "RelativeToolTip": "Global.asax.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-30T17:39:23.349Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 45,
+              "Title": "FilterConfig.cs",
+              "DocumentMoniker": "C:\\Users\\sibon\\source\\repos\\MediLinkCB\\App_Start\\FilterConfig.cs",
+              "RelativeDocumentMoniker": "App_Start\\FilterConfig.cs",
+              "ToolTip": "C:\\Users\\sibon\\source\\repos\\MediLinkCB\\App_Start\\FilterConfig.cs",
+              "RelativeToolTip": "App_Start\\FilterConfig.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAqwAoAAAAOAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-30T17:38:32.68Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 48,
+              "Title": "Web.Debug.config",
+              "DocumentMoniker": "C:\\Users\\sibon\\source\\repos\\MediLinkCB\\Web.Debug.config",
+              "RelativeDocumentMoniker": "Web.Debug.config",
+              "ToolTip": "C:\\Users\\sibon\\source\\repos\\MediLinkCB\\Web.Debug.config",
+              "RelativeToolTip": "Web.Debug.config",
+              "ViewState": "AQIAAAAAAAAAAAAAAAD4vwAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2024-08-30T16:37:38.101Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 47,
+              "Title": "CustomAuthorizeAttribute.cs",
+              "DocumentMoniker": "C:\\Users\\sibon\\source\\repos\\MediLinkCB\\Attributes\\CustomAuthorizeAttribute.cs",
+              "RelativeDocumentMoniker": "Attributes\\CustomAuthorizeAttribute.cs",
+              "ToolTip": "C:\\Users\\sibon\\source\\repos\\MediLinkCB\\Attributes\\CustomAuthorizeAttribute.cs",
+              "RelativeToolTip": "Attributes\\CustomAuthorizeAttribute.cs",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAABoAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-30T17:58:04.196Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 49,
+              "Title": "ForgotPassword.cshtml",
+              "DocumentMoniker": "C:\\Users\\sibon\\source\\repos\\MediLinkCB\\Views\\Login\\ForgotPassword.cshtml",
+              "RelativeDocumentMoniker": "Views\\Login\\ForgotPassword.cshtml",
+              "ToolTip": "C:\\Users\\sibon\\source\\repos\\MediLinkCB\\Views\\Login\\ForgotPassword.cshtml",
+              "RelativeToolTip": "Views\\Login\\ForgotPassword.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAABGAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-08-26T15:07:47.911Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 50,
+              "Title": "RouteConfig.cs",
+              "DocumentMoniker": "C:\\Users\\sibon\\source\\repos\\MediLinkCB\\App_Start\\RouteConfig.cs",
+              "RelativeDocumentMoniker": "App_Start\\RouteConfig.cs",
+              "ToolTip": "C:\\Users\\sibon\\source\\repos\\MediLinkCB\\App_Start\\RouteConfig.cs",
+              "RelativeToolTip": "App_Start\\RouteConfig.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAABFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-26T15:09:28.687Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

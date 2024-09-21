@@ -1,0 +1,45 @@
+﻿@model IEnumerable<MediLinkCB.Models.UserProfile>
+
+@{
+    ViewBag.Title = "Index";
+    ViewBag.ShowSidebar = true;
+    Layout = "~/Views/Shared/_Layout.cshtml"; // Ensure the layout is specified if not already
+}
+
+<div id="main">
+    @* Include Sidebar Partial View *@
+    @*@Html.Partial("_Sidebar")*@
+
+    <h2>System Profiles</h2>
+
+    <p>
+        @Html.ActionLink("Create New", "AddUser", "Login")
+    </p>
+    <table class="table styled-table">
+        <thead>
+            <tr>
+                <th>@Html.DisplayName("Username")</th>
+                <th>@Html.DisplayName("Email")</th>
+                <th>@Html.DisplayName("User Type")</th>
+                <th>@Html.DisplayName("Is Active")</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.UserName)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Email)</td>
+                    <td>@Html.DisplayFor(modelItem => item.UserType)</td>
+                    <td>@Html.DisplayFor(modelItem => item.IsActive)</td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.UserID }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.UserID }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.UserID })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

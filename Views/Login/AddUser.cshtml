@@ -1,0 +1,58 @@
+﻿@model MediLinkCB.Models.UserProfile
+
+@{
+    ViewBag.Title = "Add User";
+    ViewBag.ShowSidebar = true;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Add User</h2>
+
+@using (Html.BeginForm("AddUser", "Login", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    @*@Html.Partial("_Sidebar")*@
+    @*<button class="openbtn" onclick="openNav()">&#9776; Menu</button>*@
+
+
+    <div class="form-row">
+        <div class="form-group half-width">
+            @Html.LabelFor(m => m.UserName, "Username")
+            @Html.TextBoxFor(m => m.UserName, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.UserName)
+        </div>
+
+        <div class="form-group half-width">
+            @Html.LabelFor(m => m.PasswordHash, "Password")
+            @Html.PasswordFor(m => m.PasswordHash, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.PasswordHash)
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="form-group half-width">
+            @Html.LabelFor(m => m.Email, "Email Address")
+            @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.Email)
+        </div>
+
+
+        <div class="form-group half-width">
+            @Html.LabelFor(m => m.UserType, "User Type")
+            @Html.DropDownListFor(m => m.UserType, new SelectList(new[] { "Doctor", "Nurse", "Clerk" }), "--Select User Type--", new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.UserType)
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.Label("Activate User")
+        <div>
+            <label>@Html.RadioButtonFor(m => m.IsActive, true) Active</label>
+            <label>@Html.RadioButtonFor(m => m.IsActive, false) Inactive</label>
+        </div>
+        @Html.ValidationMessageFor(m => m.IsActive)
+    </div>
+    <br>
+    <button type="submit" class="btn btn-primary">Add User</button>
+}

@@ -1,0 +1,144 @@
+﻿@model MediLinkCB.Models.PatientResidentialAddressNOKViewModel
+
+@{
+    ViewBag.Title = "Details";
+    ViewBag.ShowMenu = true;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Patient Details</h2>
+
+<div class="container">
+    <h4>Patient</h4>
+    <hr />
+
+    <div class="form-row">
+        <div class="form-group half-width">
+            @Html.Label("PatientName", "Patient Name")
+            @Html.DisplayFor(model => model.PatientName)
+        </div>
+        <div class="form-group half-width">
+            @Html.Label("PatientSurname", "Patient Surname")
+            @Html.DisplayFor(model => model.PatientSurname)
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="form-group half-width">
+            @Html.Label("DateOfBirth", "Date Of Birth")
+            @Html.DisplayFor(model => model.DateOfBirth)
+        </div>
+        <div class="form-group half-width">
+            @Html.Label("PatientHeight", "Height")
+            @Html.DisplayFor(model => model.PatientHeight)
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="form-group half-width">
+            @Html.Label("PatientWeight", "Weight")
+            @Html.DisplayFor(model => model.PatientWeight)
+        </div>
+        <div class="form-group half-width">
+            @Html.Label("Age", "Age")
+            @Html.DisplayFor(model => model.Age)
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="form-group half-width">
+            @Html.Label("Gender", "Gender")
+            @Html.DisplayFor(model => model.Gender)
+        </div>
+        <div class="form-group half-width">
+            @Html.Label("Race", "Race")
+            @Html.DisplayFor(model => model.Race)
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="form-group half-width">
+            @Html.Label("HomeLang", "Home Language")
+            @Html.DisplayFor(model => model.HomeLang)
+        </div>
+        <div class="form-group half-width">
+            @Html.Label("MaritalStatus", "Marital Status")
+            @Html.DisplayFor(model => model.MaritalStatus)
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="form-group half-width">
+            @Html.Label("Disability", "Disability")
+            @Html.DisplayFor(model => model.Disability)
+        </div>
+        <div class="form-group half-width">
+            @Html.Label("StreetAddress", "Street Address")
+            @Html.DisplayFor(model => model.StreetAddress)
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="form-group half-width">
+            @Html.Label("City", "City")
+            @Html.DisplayFor(model => model.City)
+        </div>
+        <div class="form-group half-width">
+            @Html.Label("Suburb", "Suburb")
+            @Html.DisplayFor(model => model.Suburb)
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="form-group half-width">
+            @Html.Label("PostalCode", "Postal Code")
+            @Html.DisplayFor(model => model.PostalCode)
+        </div>
+        <div class="form-group half-width">
+            @Html.Label("Province", "Province")
+            @Html.DisplayFor(model => model.Province)
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="form-group half-width">
+            @Html.Label("EmailAddress", "Email Address")
+            @Html.DisplayFor(model => model.EmailAddress)
+        </div>
+        <div class="form-group half-width">
+            @Html.Label("CellNumber", "Cellphone Number")
+            @Html.DisplayFor(model => model.CellNumber)
+        </div>
+    </div>
+
+    <h4>Next of Kin Information</h4>
+    <hr />
+    <div class="form-row">
+        <div class="form-group half-width">
+            @Html.Label("NOKFirstName", "First Name")
+            @Html.DisplayFor(model => model.NOKFirstName)
+        </div>
+        <div class="form-group half-width">
+            @Html.Label("NOKLastName", "Last Name")
+            @Html.DisplayFor(model => model.NOKLastName)
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="form-group half-width">
+            @Html.Label("Relationship", "Relationship")
+            @Html.DisplayFor(model => model.Relationship)
+        </div>
+        <div class="form-group half-width">
+            @Html.Label("NOKCellNumber", "Cellphone Number")
+            @Html.DisplayFor(model => model.NOKCellNumber)
+        </div>
+    </div>
+</div>
+
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.SaID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+
+

@@ -1,0 +1,52 @@
+﻿@model MediLinkCB.Models.Appointment
+
+@{
+    ViewBag.Title = "Book an Appointment";
+    ViewBag.ShowMainMenu = true;
+    Layout = "~/Views/Shared/_Layout.cshtml";  // Use your layout page
+}
+
+<div class="container">
+    <h1>@ViewBag.Title</h1>
+
+    @using (Html.BeginForm("Create", "Appointments", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+
+        <!-- South Africa ID Field -->
+        <div class="form-group">
+            @Html.LabelFor(model => model.SaID, "South Africa ID:")
+            @Html.TextBoxFor(model => model.SaID, new { @class = "form-control", @required = "required" })
+        </div>
+
+        <!-- Email Address Field -->
+        <div class="form-group">
+            @Html.LabelFor(model => model.EmailAddress, "Email Address:")
+            @Html.TextBoxFor(model => model.EmailAddress, new { @class = "form-control", @type = "email", @required = "required" })
+        </div>
+
+        <!-- Appointment Date and Time Picker -->
+        <div class="form-group">
+            @Html.LabelFor(model => model.AppointmentDateTime, "Appointment Date and Time:")
+            @Html.EditorFor(model => model.AppointmentDateTime, new { htmlAttributes = new { @class = "form-control", @type = "datetime-local", @required = "required" } })
+        </div>
+
+        <!-- Appointment Reason Dropdown -->
+        <div class="form-group">
+            @Html.LabelFor(model => model.AppointmentReason, "Appointment Reason:")
+            @Html.DropDownListFor(model => model.AppointmentReason, new SelectList(new[]
+            {
+                new { Value = "Routine Check Up", Text = "Routine Check Up" },
+                new { Value = "Medication Care", Text = "Medication Care" },
+                new { Value = "Preventive", Text = "Preventive" },
+                new { Value = "Family Planning", Text = "Family Planning" },
+                new { Value = "Other", Text = "Other" }
+            }, "Value", "Text"), "-- Select Reason --", new { @class = "form-control", @required = "required" })
+        </div>
+
+        <!-- Submit Button -->
+        <div class="form-group">
+            <input type="submit" value="Book Appointment" class="btn btn-primary" />
+        </div>
+    }
+</div>

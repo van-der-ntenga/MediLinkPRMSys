@@ -1,0 +1,48 @@
+﻿@model MediLinkCB.Models.UserProfile
+
+@{
+    ViewBag.Title = "Details";
+    ViewBag.ShowSidebar = true;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>User Profile Details</h2>
+
+<div class="container">
+    @Html.Partial("_Sidebar")
+    <button class="openbtn" onclick="openNav()">&#9776; Menu</button>
+
+    <hr />
+
+    <!-- User Information Section -->
+    <div class="form-row">
+        <div class="form-group half-width">
+            @Html.LabelFor(model => model.UserName, "Username")
+            @Html.DisplayFor(model => model.UserName)
+        </div>
+        <div class="form-group half-width">
+            @Html.LabelFor(model => model.Email, "Email Address")
+            @Html.DisplayFor(model => model.Email)
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="form-group half-width">
+            @Html.LabelFor(model => model.UserType, "User Type")
+            @Html.DisplayFor(model => model.UserType)
+        </div>
+        <div class="form-group half-width">
+            @Html.LabelFor(model => model.IsActive, "Is Active")
+            @Html.DisplayFor(model => model.IsActive)
+        </div>
+    </div>
+
+  
+    
+</div>
+
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.UserID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+

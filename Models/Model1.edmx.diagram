@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="f0d99bdcf838434dade65d59e18b3f14" Name="Diagram1">
+        <EntityTypeShape EntityType="MediLinkDBModel.Appointment" Width="1.5" PointX="3" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="MediLinkDBModel.MedicalHistory" Width="1.5" PointX="7.5" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="MediLinkDBModel.Medication" Width="1.5" PointX="8.25" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="MediLinkDBModel.NextOfKin" Width="1.5" PointX="7.5" PointY="9.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="MediLinkDBModel.Patient" Width="1.5" PointX="5.25" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="MediLinkDBModel.Prescription" Width="1.5" PointX="10.5" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="MediLinkDBModel.ResidentialAddress" Width="1.5" PointX="7.5" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MediLinkDBModel.UserProfile" Width="1.5" PointX="0.75" PointY="6.375" IsExpanded="true" />
+        <AssociationConnector Association="MediLinkDBModel.FK__Appointme__UserI__5BE2A6F2" ManuallyRouted="false" />
+        <AssociationConnector Association="MediLinkDBModel.FK__Appointmen__SaID__5CD6CB2B" ManuallyRouted="false" />
+        <AssociationConnector Association="MediLinkDBModel.FK__MedicalHi__Medic__5812160E" ManuallyRouted="false" />
+        <AssociationConnector Association="MediLinkDBModel.FK__MedicalHi__UserI__5629CD9C" ManuallyRouted="false" />
+        <AssociationConnector Association="MediLinkDBModel.FK__MedicalHis__SaID__571DF1D5" ManuallyRouted="false" />
+        <AssociationConnector Association="MediLinkDBModel.FK__Prescript__Medic__4E88ABD4" ManuallyRouted="false" />
+        <AssociationConnector Association="MediLinkDBModel.FK__NextOfKin__SaID__46E78A0C" ManuallyRouted="false" />
+        <AssociationConnector Association="MediLinkDBModel.FK__Prescripti__SaID__4D94879B" ManuallyRouted="false" />
+        <AssociationConnector Association="MediLinkDBModel.FK__Residentia__SaID__4316F928" ManuallyRouted="false" />
+        <AssociationConnector Association="MediLinkDBModel.FK__Prescript__UserI__4CA06362" ManuallyRouted="false" />
+        <AssociationConnector Association="MediLinkDBModel.MediScript" ManuallyRouted="false" />
+        <AssociationConnector Association="MediLinkDBModel.TrackingHistory" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,56 @@
+﻿@model IEnumerable<MediLinkCB.Models.Patient>
+
+@{
+    ViewBag.Title = "Index";
+    ViewBag.ShowMainMenu = true;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Patient Records</h2>
+@Html.Partial("_SearchBar")
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table styled-table">
+    <thead>
+        <tr>
+            <th>@Html.DisplayName("Name")</th>
+            <th>@Html.DisplayName("Surname")</th>
+            <th>@Html.DisplayName("Date Of Birth")</th>
+            @*<th>@Html.DisplayNameFor(model => model.PatientHeight)</th>
+            <th>@Html.DisplayNameFor(model => model.PatientWeight)</th>*@
+            <th>@Html.DisplayName("Age")</th>
+            <th>@Html.DisplayName("Gender")</th>
+            <th>@Html.DisplayName("Race")</th>
+            <th>@Html.DisplayName("Disability")</th>
+            @*<th>@Html.DisplayNameFor(model => model.EmailAddress)</th>
+            <th>@Html.DisplayNameFor(model => model.CellNumber)</th>*@
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.PatientName)</td>
+                <td>@Html.DisplayFor(modelItem => item.PatientSurname)</td>
+                <td>@Html.DisplayFor(modelItem => item.DateOfBirth)</td>
+                @*<td>@Html.DisplayFor(modelItem => item.PatientHeight)</td>
+                <td>@Html.DisplayFor(modelItem => item.PatientWeight)</td>*@
+                <td>@Html.DisplayFor(modelItem => item.Age)</td>
+                <td>@Html.DisplayFor(modelItem => item.Gender)</td>
+                <td>@Html.DisplayFor(modelItem => item.Race)</td>
+                <td>@Html.DisplayFor(modelItem => item.Disability)</td>
+                @*<td>@Html.DisplayFor(modelItem => item.EmailAddress)</td>
+                <td>@Html.DisplayFor(modelItem => item.CellNumber)</td>*@
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.SaID }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.SaID }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.SaID })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
