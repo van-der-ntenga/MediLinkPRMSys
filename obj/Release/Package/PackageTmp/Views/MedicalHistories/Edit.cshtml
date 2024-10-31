@@ -1,0 +1,61 @@
+﻿@model MediLinkCB.Models.MedicalHistory
+
+@{
+    ViewBag.Title = "Edit Medical History";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Edit Medical History for @Model.Patient.PatientName @Model.Patient.PatientSurname</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Medical History</h4>
+        <hr />
+
+        @Html.HiddenFor(model => model.MedicalHistoryID)
+        @Html.HiddenFor(model => model.PatientID)
+        @Html.HiddenFor(model => model.UserID) <!-- Doctor ID -->
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Diagnosis)
+            @Html.TextAreaFor(model => model.Diagnosis, new { @class = "form-control", rows = 4 })
+            @Html.ValidationMessageFor(model => model.Diagnosis)
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Notes)
+            @Html.TextAreaFor(model => model.Notes, new { @class = "form-control", rows = 4 })
+            @Html.ValidationMessageFor(model => model.Notes)
+        </div>
+
+        <!-- Medications Section -->
+        <div class="form-group">
+            <label>Medications</label>
+            <div id="medication-list">
+                <div class="form-group">
+                    <input type="text" name="medications[]" class="form-control" placeholder="Enter medication" />
+                </div>
+            </div>
+            <button type="button" id="add-medication" class="btn btn-secondary">Add Another Medication</button>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Save</button>
+    </div>
+}
+
+@section Scripts {
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.6.0.min.js"></script>
+    <script>
+        // Add another medication input field
+        $('#add-medication').on('click', function () {
+            $('#medication-list').append(
+                `<div class="form-group">
+                    <input type="text" name="medications[]" class="form-control" placeholder="Enter medication" />
+                 </div>`
+            );
+        });
+    </script>
+}

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="7d5361924e4b4de7a74492336b4148e2" Name="Diagram1">
+        <EntityTypeShape EntityType="MediLinkDBModel.Appointment" Width="1.5" PointX="3" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="MediLinkDBModel.MedicalHistory" Width="1.5" PointX="7.5" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MediLinkDBModel.NextOfKin" Width="1.5" PointX="3" PointY="8.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="MediLinkDBModel.Patient" Width="1.5" PointX="0.75" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="MediLinkDBModel.ResidentialAddress" Width="1.5" PointX="3" PointY="11.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="MediLinkDBModel.UserProfile" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="MediLinkDBModel.FK__Appointme__Patie__4D94879B" ManuallyRouted="false" />
+        <AssociationConnector Association="MediLinkDBModel.FK__Appointme__UserI__4CA06362" ManuallyRouted="false" />
+        <AssociationConnector Association="MediLinkDBModel.FK_MedHistory_Appointment" ManuallyRouted="false" />
+        <AssociationConnector Association="MediLinkDBModel.FK_MedHistory_Patient" ManuallyRouted="false" />
+        <AssociationConnector Association="MediLinkDBModel.FK_MedHistory_User" ManuallyRouted="false" />
+        <AssociationConnector Association="MediLinkDBModel.FK_Patient_NextOfKin" ManuallyRouted="false" />
+        <AssociationConnector Association="MediLinkDBModel.FK_Patient_ResidentialAddress" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="MediLinkDBModel.Medication" Width="1.5" PointX="7.5" PointY="10.125" />
+        <EntityTypeShape EntityType="MediLinkDBModel.Prescription" Width="1.5" PointX="5.25" PointY="3.75" />
+        <AssociationConnector Association="MediLinkDBModel.FK__Prescript__Appoi__09A971A2" />
+        <AssociationConnector Association="MediLinkDBModel.FK_MedHistory_Prescription" />
+        <AssociationConnector Association="MediLinkDBModel.FK__Medicatio__Presc__0E6E26BF" />
+        <AssociationConnector Association="MediLinkDBModel.FK__Prescript__Patie__08B54D69" />
+        <AssociationConnector Association="MediLinkDBModel.FK__Prescript__UserI__07C12930" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -17,19 +17,23 @@ namespace MediLinkCB.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Appointment()
         {
-            this.Patients = new HashSet<Patient>();
+            this.MedicalHistories = new HashSet<MedicalHistory>();
+            this.Prescriptions = new HashSet<Prescription>();
         }
     
         public int AppointmentID { get; set; }
         public int UserID { get; set; }
-        public string SaID { get; set; }
+        public string PatientID { get; set; }
         public string EmailAddress { get; set; }
         public Nullable<System.DateTime> AppointmentDateTime { get; set; }
         public string AppointmentReason { get; set; }
+        public bool IsCheckedIn { get; set; }
     
-        public virtual UserProfile UserProfile { get; set; }
         public virtual Patient Patient { get; set; }
+        public virtual UserProfile UserProfile { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Patient> Patients { get; set; }
+        public virtual ICollection<MedicalHistory> MedicalHistories { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Prescription> Prescriptions { get; set; }
     }
 }

@@ -6,52 +6,34 @@
     </Key>
     <Property Name="AppointmentID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="UserID" Type="int" Nullable="false" />
-    <Property Name="SaID" Type="nvarchar" MaxLength="13" Nullable="false" />
+    <Property Name="PatientID" Type="varchar" MaxLength="13" />
     <Property Name="EmailAddress" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="AppointmentDateTime" Type="datetime" />
+    <Property Name="AppointmentDate" Type="datetime" />
     <Property Name="AppointmentReason" Type="nvarchar" MaxLength="50" />
+    <Property Name="IsCheckedIn" Type="bit" Nullable="false" />
   </EntityType>
   <EntityType Name="MedicalHistory">
     <Key>
-      <PropertyRef Name="UserID" />
-      <PropertyRef Name="SaID" />
-      <PropertyRef Name="MedicationID" />
+      <PropertyRef Name="MedicalHistoryID" />
     </Key>
+    <Property Name="MedicalHistoryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="UserID" Type="int" Nullable="false" />
-    <Property Name="SaID" Type="nvarchar" MaxLength="13" Nullable="false" />
-    <Property Name="MedicationID" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="PatientType" Type="nvarchar" MaxLength="50" />
-    <Property Name="DiagnosisDate" Type="date" Nullable="false" />
-    <Property Name="Allergies" Type="nvarchar" MaxLength="100" />
-    <Property Name="Condition" Type="nvarchar" MaxLength="255" />
-    <Property Name="Surgeries" Type="nvarchar" MaxLength="255" />
-    <Property Name="LastUpdated" Type="date" Nullable="false" />
-  </EntityType>
-  <EntityType Name="Medication">
-    <Key>
-      <PropertyRef Name="MedicationID" />
-    </Key>
-    <Property Name="MedicationID" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="MedicationName" Type="nvarchar" MaxLength="100" Nullable="false" />
-    <Property Name="BrandName" Type="nvarchar" MaxLength="100" Nullable="false" />
-    <Property Name="Quantity" Type="int" />
-    <Property Name="ManufacturedDate" Type="date" />
-    <Property Name="ExpiryDate" Type="date" />
-    <Property Name="Dosage" Type="nvarchar" MaxLength="100" />
-  </EntityType>
-  <EntityType Name="MediScript">
-    <Key>
-      <PropertyRef Name="SaID" />
-      <PropertyRef Name="PrescriptionID" />
-    </Key>
-    <Property Name="SaID" Type="nvarchar" MaxLength="13" Nullable="false" />
-    <Property Name="PrescriptionID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="PatientID" Type="varchar" MaxLength="13" />
+    <Property Name="AppointmentID" Type="int" />
+    <Property Name="PrescriptionID" Type="int" />
+    <Property Name="PatientName" Type="nvarchar" MaxLength="50" />
+    <Property Name="PatientSurname" Type="nvarchar" MaxLength="50" />
+    <Property Name="AppointmentReason" Type="nvarchar" MaxLength="50" />
+    <Property Name="Diagnosis" Type="nvarchar" MaxLength="255" />
+    <Property Name="Notes" Type="nvarchar" MaxLength="1000" />
+    <Property Name="AppointmentDateTime" Type="datetime" />
+    <Property Name="FollowUp" Type="bit" />
   </EntityType>
   <EntityType Name="NextOfKin">
     <Key>
-      <PropertyRef Name="SaID" />
+      <PropertyRef Name="PatientID" />
     </Key>
-    <Property Name="SaID" Type="nvarchar" MaxLength="13" Nullable="false" />
+    <Property Name="PatientID" Type="varchar" MaxLength="13" Nullable="false" />
     <Property Name="NOKFirstName" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="NOKLastName" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="Relationship" Type="nvarchar" MaxLength="50" />
@@ -59,13 +41,14 @@
   </EntityType>
   <EntityType Name="Patient">
     <Key>
-      <PropertyRef Name="SaID" />
+      <PropertyRef Name="PatientID" />
     </Key>
-    <Property Name="SaID" Type="nvarchar" MaxLength="13" Nullable="false" />
+    <Property Name="PatientID" Type="varchar" MaxLength="13" Nullable="false" />
     <Property Name="PatientName" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="PatientSurname" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="DateOfBirth" Type="date" Nullable="false" />
     <Property Name="Age" Type="int" />
+    <Property Name="Nationality" Type="nvarchar" MaxLength="50" />
     <Property Name="PatientHeight" Type="decimal" Precision="10" Scale="2" />
     <Property Name="PatientWeight" Type="decimal" Precision="10" Scale="2" />
     <Property Name="Disability" Type="varchar" MaxLength="20" />
@@ -80,30 +63,25 @@
     <Key>
       <PropertyRef Name="PrescriptionID" />
     </Key>
-    <Property Name="PrescriptionID" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="UserID" Type="int" Nullable="false" />
-    <Property Name="SaID" Type="nvarchar" MaxLength="13" Nullable="false" />
-    <Property Name="MedicationID" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="Duration" Type="nvarchar" MaxLength="50" />
+    <Property Name="UserID" Type="int" />
+    <Property Name="PatientID" Type="varchar" MaxLength="13" />
+    <Property Name="PrescriptionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="StringId" Type="varchar" MaxLength="7" StoreGeneratedPattern="Computed" />
+    <Property Name="AppointmentID" Type="int" />
+    <Property Name="MedicationName" Type="nvarchar" MaxLength="40" />
+    <Property Name="IsCollected" Type="bit" Nullable="false" />
+    <Property Name="AppointmentDateTime" Type="datetime" />
   </EntityType>
   <EntityType Name="ResidentialAddress">
     <Key>
-      <PropertyRef Name="SaID" />
+      <PropertyRef Name="PatientID" />
     </Key>
-    <Property Name="SaID" Type="nvarchar" MaxLength="13" Nullable="false" />
+    <Property Name="PatientID" Type="varchar" MaxLength="13" Nullable="false" />
     <Property Name="StreetAddress" Type="nvarchar" MaxLength="255" Nullable="false" />
     <Property Name="Suburb" Type="nvarchar" MaxLength="255" />
     <Property Name="City" Type="nvarchar" MaxLength="100" />
     <Property Name="PostalCode" Type="nvarchar" MaxLength="10" />
     <Property Name="Province" Type="nvarchar" MaxLength="20" />
-  </EntityType>
-  <EntityType Name="TrackingHistory">
-    <Key>
-      <PropertyRef Name="SaID" />
-      <PropertyRef Name="AppointmentID" />
-    </Key>
-    <Property Name="SaID" Type="nvarchar" MaxLength="13" Nullable="false" />
-    <Property Name="AppointmentID" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="UserProfile">
     <Key>
@@ -117,8 +95,23 @@
     <Property Name="IsActive" Type="bit" Nullable="false" />
     <Property Name="OTP" Type="nvarchar" MaxLength="10" />
     <Property Name="OTPExpiry" Type="datetime" />
+    <Property Name="Specialisation" Type="nvarchar" MaxLength="50" />
   </EntityType>
-  <Association Name="FK__Appointme__UserI__5BE2A6F2">
+  <Association Name="FK__Appointme__Patie__4D94879B">
+    <End Role="Patient" Type="Self.Patient" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Appointment" Type="Self.Appointment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Patient">
+        <PropertyRef Name="PatientID" />
+      </Principal>
+      <Dependent Role="Appointment">
+        <PropertyRef Name="PatientID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Appointme__UserI__4CA06362">
     <End Role="UserProfile" Type="Self.UserProfile" Multiplicity="1" />
     <End Role="Appointment" Type="Self.Appointment" Multiplicity="*" />
     <ReferentialConstraint>
@@ -130,228 +123,173 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Appointmen__SaID__5CD6CB2B">
-    <End Role="Patient" Type="Self.Patient" Multiplicity="1" />
-    <End Role="Appointment" Type="Self.Appointment" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Patient">
-        <PropertyRef Name="SaID" />
-      </Principal>
-      <Dependent Role="Appointment">
-        <PropertyRef Name="SaID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK__MedicalHi__Medic__5812160E">
-    <End Role="Medication" Type="Self.Medication" Multiplicity="1" />
-    <End Role="MedicalHistory" Type="Self.MedicalHistory" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Medication">
-        <PropertyRef Name="MedicationID" />
-      </Principal>
-      <Dependent Role="MedicalHistory">
-        <PropertyRef Name="MedicationID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK__MedicalHi__UserI__5629CD9C">
-    <End Role="UserProfile" Type="Self.UserProfile" Multiplicity="1" />
-    <End Role="MedicalHistory" Type="Self.MedicalHistory" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="UserProfile">
-        <PropertyRef Name="UserID" />
-      </Principal>
-      <Dependent Role="MedicalHistory">
-        <PropertyRef Name="UserID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK__MedicalHis__SaID__571DF1D5">
-    <End Role="Patient" Type="Self.Patient" Multiplicity="1" />
-    <End Role="MedicalHistory" Type="Self.MedicalHistory" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Patient">
-        <PropertyRef Name="SaID" />
-      </Principal>
-      <Dependent Role="MedicalHistory">
-        <PropertyRef Name="SaID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK__MediScrip__Presc__534D60F1">
-    <End Role="Prescription" Type="Self.Prescription" Multiplicity="1" />
-    <End Role="MediScript" Type="Self.MediScript" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Prescription">
-        <PropertyRef Name="PrescriptionID" />
-      </Principal>
-      <Dependent Role="MediScript">
-        <PropertyRef Name="PrescriptionID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK__MediScript__SaID__52593CB8">
-    <End Role="Patient" Type="Self.Patient" Multiplicity="1" />
-    <End Role="MediScript" Type="Self.MediScript" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Patient">
-        <PropertyRef Name="SaID" />
-      </Principal>
-      <Dependent Role="MediScript">
-        <PropertyRef Name="SaID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK__NextOfKin__SaID__46E78A0C">
-    <End Role="Patient" Type="Self.Patient" Multiplicity="1" />
-    <End Role="NextOfKin" Type="Self.NextOfKin" Multiplicity="0..1" />
-    <ReferentialConstraint>
-      <Principal Role="Patient">
-        <PropertyRef Name="SaID" />
-      </Principal>
-      <Dependent Role="NextOfKin">
-        <PropertyRef Name="SaID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK__Prescript__Medic__4E88ABD4">
-    <End Role="Medication" Type="Self.Medication" Multiplicity="1" />
+  <Association Name="FK__Prescript__Appoi__5812160E">
+    <End Role="Appointment" Type="Self.Appointment" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
     <End Role="Prescription" Type="Self.Prescription" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Medication">
-        <PropertyRef Name="MedicationID" />
-      </Principal>
-      <Dependent Role="Prescription">
-        <PropertyRef Name="MedicationID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK__Prescript__UserI__4CA06362">
-    <End Role="UserProfile" Type="Self.UserProfile" Multiplicity="1" />
-    <End Role="Prescription" Type="Self.Prescription" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="UserProfile">
-        <PropertyRef Name="UserID" />
-      </Principal>
-      <Dependent Role="Prescription">
-        <PropertyRef Name="UserID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK__Prescripti__SaID__4D94879B">
-    <End Role="Patient" Type="Self.Patient" Multiplicity="1" />
-    <End Role="Prescription" Type="Self.Prescription" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Patient">
-        <PropertyRef Name="SaID" />
-      </Principal>
-      <Dependent Role="Prescription">
-        <PropertyRef Name="SaID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK__Residentia__SaID__4316F928">
-    <End Role="Patient" Type="Self.Patient" Multiplicity="1" />
-    <End Role="ResidentialAddress" Type="Self.ResidentialAddress" Multiplicity="0..1" />
-    <ReferentialConstraint>
-      <Principal Role="Patient">
-        <PropertyRef Name="SaID" />
-      </Principal>
-      <Dependent Role="ResidentialAddress">
-        <PropertyRef Name="SaID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK__TrackingH__Appoi__619B8048">
-    <End Role="Appointment" Type="Self.Appointment" Multiplicity="1" />
-    <End Role="TrackingHistory" Type="Self.TrackingHistory" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Appointment">
         <PropertyRef Name="AppointmentID" />
       </Principal>
-      <Dependent Role="TrackingHistory">
+      <Dependent Role="Prescription">
         <PropertyRef Name="AppointmentID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__TrackingHi__SaID__60A75C0F">
-    <End Role="Patient" Type="Self.Patient" Multiplicity="1" />
-    <End Role="TrackingHistory" Type="Self.TrackingHistory" Multiplicity="*" />
+  <Association Name="FK__Prescript__Patie__571DF1D5">
+    <End Role="Patient" Type="Self.Patient" Multiplicity="0..1" />
+    <End Role="Prescription" Type="Self.Prescription" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Patient">
-        <PropertyRef Name="SaID" />
+        <PropertyRef Name="PatientID" />
       </Principal>
-      <Dependent Role="TrackingHistory">
-        <PropertyRef Name="SaID" />
+      <Dependent Role="Prescription">
+        <PropertyRef Name="PatientID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Prescript__UserI__5629CD9C">
+    <End Role="UserProfile" Type="Self.UserProfile" Multiplicity="0..1" />
+    <End Role="Prescription" Type="Self.Prescription" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserProfile">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="Prescription">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MedHistory_Appointment">
+    <End Role="Appointment" Type="Self.Appointment" Multiplicity="0..1" />
+    <End Role="MedicalHistory" Type="Self.MedicalHistory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Appointment">
+        <PropertyRef Name="AppointmentID" />
+      </Principal>
+      <Dependent Role="MedicalHistory">
+        <PropertyRef Name="AppointmentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MedHistory_Patient">
+    <End Role="Patient" Type="Self.Patient" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="MedicalHistory" Type="Self.MedicalHistory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Patient">
+        <PropertyRef Name="PatientID" />
+      </Principal>
+      <Dependent Role="MedicalHistory">
+        <PropertyRef Name="PatientID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MedHistory_Prescription">
+    <End Role="Prescription" Type="Self.Prescription" Multiplicity="0..1" />
+    <End Role="MedicalHistory" Type="Self.MedicalHistory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Prescription">
+        <PropertyRef Name="PrescriptionID" />
+      </Principal>
+      <Dependent Role="MedicalHistory">
+        <PropertyRef Name="PrescriptionID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MedHistory_User">
+    <End Role="UserProfile" Type="Self.UserProfile" Multiplicity="1" />
+    <End Role="MedicalHistory" Type="Self.MedicalHistory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserProfile">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="MedicalHistory">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Patient_NextOfKin">
+    <End Role="Patient" Type="Self.Patient" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="NextOfKin" Type="Self.NextOfKin" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Patient">
+        <PropertyRef Name="PatientID" />
+      </Principal>
+      <Dependent Role="NextOfKin">
+        <PropertyRef Name="PatientID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Patient_ResidentialAddress">
+    <End Role="Patient" Type="Self.Patient" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ResidentialAddress" Type="Self.ResidentialAddress" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Patient">
+        <PropertyRef Name="PatientID" />
+      </Principal>
+      <Dependent Role="ResidentialAddress">
+        <PropertyRef Name="PatientID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <EntityContainer Name="MediLinkDBModelStoreContainer">
     <EntitySet Name="Appointment" EntityType="Self.Appointment" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="MedicalHistory" EntityType="Self.MedicalHistory" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="Medication" EntityType="Self.Medication" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="MediScript" EntityType="Self.MediScript" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="NextOfKin" EntityType="Self.NextOfKin" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Patient" EntityType="Self.Patient" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Prescription" EntityType="Self.Prescription" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ResidentialAddress" EntityType="Self.ResidentialAddress" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="TrackingHistory" EntityType="Self.TrackingHistory" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="UserProfile" EntityType="Self.UserProfile" Schema="dbo" store:Type="Tables" />
-    <AssociationSet Name="FK__Appointme__UserI__5BE2A6F2" Association="Self.FK__Appointme__UserI__5BE2A6F2">
-      <End Role="UserProfile" EntitySet="UserProfile" />
-      <End Role="Appointment" EntitySet="Appointment" />
-    </AssociationSet>
-    <AssociationSet Name="FK__Appointmen__SaID__5CD6CB2B" Association="Self.FK__Appointmen__SaID__5CD6CB2B">
+    <AssociationSet Name="FK__Appointme__Patie__4D94879B" Association="Self.FK__Appointme__Patie__4D94879B">
       <End Role="Patient" EntitySet="Patient" />
       <End Role="Appointment" EntitySet="Appointment" />
     </AssociationSet>
-    <AssociationSet Name="FK__MedicalHi__Medic__5812160E" Association="Self.FK__MedicalHi__Medic__5812160E">
-      <End Role="Medication" EntitySet="Medication" />
-      <End Role="MedicalHistory" EntitySet="MedicalHistory" />
-    </AssociationSet>
-    <AssociationSet Name="FK__MedicalHi__UserI__5629CD9C" Association="Self.FK__MedicalHi__UserI__5629CD9C">
+    <AssociationSet Name="FK__Appointme__UserI__4CA06362" Association="Self.FK__Appointme__UserI__4CA06362">
       <End Role="UserProfile" EntitySet="UserProfile" />
-      <End Role="MedicalHistory" EntitySet="MedicalHistory" />
+      <End Role="Appointment" EntitySet="Appointment" />
     </AssociationSet>
-    <AssociationSet Name="FK__MedicalHis__SaID__571DF1D5" Association="Self.FK__MedicalHis__SaID__571DF1D5">
-      <End Role="Patient" EntitySet="Patient" />
-      <End Role="MedicalHistory" EntitySet="MedicalHistory" />
-    </AssociationSet>
-    <AssociationSet Name="FK__MediScrip__Presc__534D60F1" Association="Self.FK__MediScrip__Presc__534D60F1">
+    <AssociationSet Name="FK__Prescript__Appoi__5812160E" Association="Self.FK__Prescript__Appoi__5812160E">
+      <End Role="Appointment" EntitySet="Appointment" />
       <End Role="Prescription" EntitySet="Prescription" />
-      <End Role="MediScript" EntitySet="MediScript" />
     </AssociationSet>
-    <AssociationSet Name="FK__MediScript__SaID__52593CB8" Association="Self.FK__MediScript__SaID__52593CB8">
+    <AssociationSet Name="FK__Prescript__Patie__571DF1D5" Association="Self.FK__Prescript__Patie__571DF1D5">
       <End Role="Patient" EntitySet="Patient" />
-      <End Role="MediScript" EntitySet="MediScript" />
+      <End Role="Prescription" EntitySet="Prescription" />
     </AssociationSet>
-    <AssociationSet Name="FK__NextOfKin__SaID__46E78A0C" Association="Self.FK__NextOfKin__SaID__46E78A0C">
+    <AssociationSet Name="FK__Prescript__UserI__5629CD9C" Association="Self.FK__Prescript__UserI__5629CD9C">
+      <End Role="UserProfile" EntitySet="UserProfile" />
+      <End Role="Prescription" EntitySet="Prescription" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MedHistory_Appointment" Association="Self.FK_MedHistory_Appointment">
+      <End Role="Appointment" EntitySet="Appointment" />
+      <End Role="MedicalHistory" EntitySet="MedicalHistory" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MedHistory_Patient" Association="Self.FK_MedHistory_Patient">
+      <End Role="Patient" EntitySet="Patient" />
+      <End Role="MedicalHistory" EntitySet="MedicalHistory" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MedHistory_Prescription" Association="Self.FK_MedHistory_Prescription">
+      <End Role="Prescription" EntitySet="Prescription" />
+      <End Role="MedicalHistory" EntitySet="MedicalHistory" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MedHistory_User" Association="Self.FK_MedHistory_User">
+      <End Role="UserProfile" EntitySet="UserProfile" />
+      <End Role="MedicalHistory" EntitySet="MedicalHistory" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Patient_NextOfKin" Association="Self.FK_Patient_NextOfKin">
       <End Role="Patient" EntitySet="Patient" />
       <End Role="NextOfKin" EntitySet="NextOfKin" />
     </AssociationSet>
-    <AssociationSet Name="FK__Prescript__Medic__4E88ABD4" Association="Self.FK__Prescript__Medic__4E88ABD4">
-      <End Role="Medication" EntitySet="Medication" />
-      <End Role="Prescription" EntitySet="Prescription" />
-    </AssociationSet>
-    <AssociationSet Name="FK__Prescript__UserI__4CA06362" Association="Self.FK__Prescript__UserI__4CA06362">
-      <End Role="UserProfile" EntitySet="UserProfile" />
-      <End Role="Prescription" EntitySet="Prescription" />
-    </AssociationSet>
-    <AssociationSet Name="FK__Prescripti__SaID__4D94879B" Association="Self.FK__Prescripti__SaID__4D94879B">
-      <End Role="Patient" EntitySet="Patient" />
-      <End Role="Prescription" EntitySet="Prescription" />
-    </AssociationSet>
-    <AssociationSet Name="FK__Residentia__SaID__4316F928" Association="Self.FK__Residentia__SaID__4316F928">
+    <AssociationSet Name="FK_Patient_ResidentialAddress" Association="Self.FK_Patient_ResidentialAddress">
       <End Role="Patient" EntitySet="Patient" />
       <End Role="ResidentialAddress" EntitySet="ResidentialAddress" />
-    </AssociationSet>
-    <AssociationSet Name="FK__TrackingH__Appoi__619B8048" Association="Self.FK__TrackingH__Appoi__619B8048">
-      <End Role="Appointment" EntitySet="Appointment" />
-      <End Role="TrackingHistory" EntitySet="TrackingHistory" />
-    </AssociationSet>
-    <AssociationSet Name="FK__TrackingHi__SaID__60A75C0F" Association="Self.FK__TrackingHi__SaID__60A75C0F">
-      <End Role="Patient" EntitySet="Patient" />
-      <End Role="TrackingHistory" EntitySet="TrackingHistory" />
     </AssociationSet>
   </EntityContainer>
 </Schema>

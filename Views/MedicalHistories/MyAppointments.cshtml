@@ -1,0 +1,42 @@
+﻿@model IEnumerable<MediLinkCB.Models.MedicalHistory>
+
+@{
+    ViewBag.Title = "My Appointments";
+    ViewBag.ShowMainMenu = true;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>My Appointments</h2>
+<hr />
+
+<table class="table styled-table">
+    <thead>
+        <tr>
+            <th>Patient Name</th>
+            <th>Appointment Reason</th>
+            <th>Appointment Date &amp; Time</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var medicalHistory in Model)
+        {
+            <tr>
+                <td>@medicalHistory.Patient.PatientName @medicalHistory.Patient.PatientSurname</td>
+                <td>@medicalHistory.AppointmentReason</td>
+                <td>@medicalHistory.AppointmentDateTime</td>
+                <td>
+                    @if (string.IsNullOrWhiteSpace(medicalHistory.Diagnosis) && string.IsNullOrWhiteSpace(medicalHistory.Notes))
+                    {
+                        @Html.ActionLink("Edit Medical Record", "EditMedicalRecord", new { id = medicalHistory.MedicalHistoryID })
+                    }
+                    else
+                    {
+                        <span class="text-muted">Record Edited</span>
+                    }
+                </td>
+            </tr>
+        }
+
+    </tbody>
+</table>

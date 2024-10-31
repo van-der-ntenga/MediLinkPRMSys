@@ -1,0 +1,19 @@
+﻿@using (Html.BeginForm("Index", "UserProfiles", FormMethod.Get))
+{
+    <div class="form-row">
+        <div class="form-group half-width">
+            @Html.Label("Search by Username:")
+            @Html.TextBox("searchUsername", null, new { @class = "form-control", placeholder = "Enter Username" })
+        </div>
+        <div class="form-group half-width">
+            @Html.Label("Search by UserType:")
+            @Html.DropDownList("searchUserType", new SelectList(new[] { "Doctor", "Nurse", "Clerk" }, "-- Select User Type --"), new { @class = "form-control" })
+        </div>
+
+    </div>
+    <div class="form-group col-md-4">
+        @Html.Label("Search by Specialisation:")
+        @Html.TextBox("searchSpecialisation", null, new { @class = "form-control", placeholder = "Enter Specialisation (for Doctors)" })
+    </div>
+    <button type="submit" class="btn btn-primary">Search</button>
+}

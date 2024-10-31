@@ -1,0 +1,62 @@
+﻿@model PagedList.IPagedList<MediLinkCB.Models.Appointment>
+@using PagedList.Mvc;
+
+@{
+    ViewBag.Title = "Check In Patient";
+    ViewBag.ShowMenu = true;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="form-horizontal">
+    <h2>Check In Patient</h2>
+    @Html.Partial("_SearchAppointment")
+
+    <br />
+    @if (!string.IsNullOrEmpty(ViewBag.Message))
+    {
+        <div class="alert alert-warning">@ViewBag.Message</div>
+    }
+    <hr />
+
+    <table class="table styled-table">
+        <thead>
+            <tr>
+                <th>South African ID/Passport Number</th>
+                <th>Name</th>
+                <th>Surname</th>
+                <th>Gender</th>
+                <th>Appointment Date &amp; Time</th>
+                <th>Reason</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Patient.PatientID</td>
+                    <td>@item.Patient.PatientName</td>
+                    <td>@item.Patient.PatientSurname</td>
+                    <td>@item.Patient.Gender</td>
+                    <td>@item.AppointmentDateTime</td>
+                    <td>@item.AppointmentReason</td>
+                    <td>
+                        @if (item.IsCheckedIn == false)
+                        {
+                            @Html.ActionLink("Check In", "CheckInDetails", new { id = item.AppointmentID }, new { @class = "btn btn-primary" })
+                        }
+                        else
+                        {
+                            <button class="btn btn-primary" disabled>Check In</button>
+                        }
+                        
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <div>
+        @Html.PagedListPager(Model, page => Url.Action("CheckIn", new { page }))
+    </div>
+</div>

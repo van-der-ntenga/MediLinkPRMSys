@@ -14,24 +14,10 @@ namespace MediLinkCB.Models
     
     public partial class Medication
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Medication()
-        {
-            this.MedicalHistories = new HashSet<MedicalHistory>();
-            this.Prescriptions = new HashSet<Prescription>();
-        }
-    
-        public string MedicationID { get; set; }
+        public int MedicationID { get; set; }
+        public Nullable<int> PrescriptionID { get; set; }
         public string MedicationName { get; set; }
-        public string BrandName { get; set; }
-        public Nullable<int> Quantity { get; set; }
-        public Nullable<System.DateTime> ManufacturedDate { get; set; }
-        public Nullable<System.DateTime> ExpiryDate { get; set; }
-        public string Dosage { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<MedicalHistory> MedicalHistories { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Prescription> Prescriptions { get; set; }
+        public virtual Prescription Prescription { get; set; }
     }
 }

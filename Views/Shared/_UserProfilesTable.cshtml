@@ -1,0 +1,30 @@
+﻿@model PagedList.IPagedList<MediLinkCB.Models.UserProfile>
+@using PagedList.Mvc;
+
+<table class="table styled-table">
+    <thead>
+        <tr>
+            <th>@Html.DisplayName("Username")</th>
+            <th>@Html.DisplayName("Email")</th>
+            <th>@Html.DisplayName("User Type")</th>
+            <th>@Html.DisplayName("Is Active")</th>
+            
+            
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.UserName)</td>
+                <td>@Html.DisplayFor(modelItem => item.Email)</td>
+                <td>@Html.DisplayFor(modelItem => item.UserType)</td>
+                <td>@Html.DisplayFor(modelItem => item.IsActive)</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<div class="pagination-container">
+    @Html.PagedListPager(Model, page => Url.Action("AdminDashboard", new { page }))
+</div>

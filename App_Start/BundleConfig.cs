@@ -23,8 +23,11 @@ namespace MediLinkCB
                       "~/Scripts/bootstrap.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap.css",
-                      "~/Content/site.css"));
+                    "~/Content/css/site.css",
+                    "~/Content/Site.css", // Add the correct path to your site.css
+                    "~/Content/bootstrap.css"));
+
+            BundleTable.EnableOptimizations = false;
         }
     }
 }

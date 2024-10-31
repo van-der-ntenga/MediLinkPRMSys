@@ -20,15 +20,14 @@ namespace MediLinkCB.Models
             this.Appointments = new HashSet<Appointment>();
             this.MedicalHistories = new HashSet<MedicalHistory>();
             this.Prescriptions = new HashSet<Prescription>();
-            this.Prescriptions1 = new HashSet<Prescription>();
-            this.Appointments1 = new HashSet<Appointment>();
         }
     
-        public string SaID { get; set; }
+        public string PatientID { get; set; }
         public string PatientName { get; set; }
         public string PatientSurname { get; set; }
         public System.DateTime DateOfBirth { get; set; }
         public Nullable<int> Age { get; set; }
+        public string Nationality { get; set; }
         public Nullable<decimal> PatientHeight { get; set; }
         public Nullable<decimal> PatientWeight { get; set; }
         public string Disability { get; set; }
@@ -44,12 +43,8 @@ namespace MediLinkCB.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<MedicalHistory> MedicalHistories { get; set; }
         public virtual NextOfKin NextOfKin { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Prescription> Prescriptions { get; set; }
         public virtual ResidentialAddress ResidentialAddress { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Prescription> Prescriptions1 { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Appointment> Appointments1 { get; set; }
+        public virtual ICollection<Prescription> Prescriptions { get; set; }
     }
 }

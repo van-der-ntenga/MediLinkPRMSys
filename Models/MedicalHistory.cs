@@ -14,18 +14,22 @@ namespace MediLinkCB.Models
     
     public partial class MedicalHistory
     {
+        public int MedicalHistoryID { get; set; }
         public int UserID { get; set; }
-        public string SaID { get; set; }
-        public string MedicationID { get; set; }
-        public string PatientType { get; set; }
-        public System.DateTime DiagnosisDate { get; set; }
-        public string Allergies { get; set; }
-        public string Condition { get; set; }
-        public string Surgeries { get; set; }
-        public System.DateTime LastUpdated { get; set; }
+        public string PatientID { get; set; }
+        public Nullable<int> AppointmentID { get; set; }
+        public Nullable<int> PrescriptionID { get; set; }
+        public string PatientName { get; set; }
+        public string PatientSurname { get; set; }
+        public string AppointmentReason { get; set; }
+        public string Diagnosis { get; set; }
+        public string Notes { get; set; }
+        public Nullable<System.DateTime> AppointmentDateTime { get; set; }
+        public Nullable<bool> FollowUp { get; set; }
     
-        public virtual Medication Medication { get; set; }
-        public virtual UserProfile UserProfile { get; set; }
+        public virtual Appointment Appointment { get; set; }
         public virtual Patient Patient { get; set; }
+        public virtual UserProfile UserProfile { get; set; }
+        public virtual Prescription Prescription { get; set; }
     }
 }

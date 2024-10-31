@@ -1,0 +1,49 @@
+﻿@model PagedList.IPagedList<MediLinkCB.Models.MedicalHistory>
+@using PagedList.Mvc;
+@{
+    ViewBag.Title = "MedicalRecords";
+    ViewBag.ShowMainMenu = true;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Patient Medical History</h2>
+
+@Html.Partial("_SearchRecord")
+<br>
+
+@if (!string.IsNullOrEmpty(ViewBag.Message))
+{
+    <div class="alert alert-warning">@ViewBag.Message</div>
+}
+
+<table class="table styled-table">
+    <thead>
+        <tr>
+            <th>Patient Name</th>
+            <th>Appointment Date</th>
+            <th>Appointment Reason</th>
+            <th>Doctor/Nurse</th>
+            <th>Diagnosis</th>
+            <th>Notes</th>
+            <th>Follow Up</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.PatientName @item.PatientSurname</td>
+                <td>@item.AppointmentDateTime</td>
+                <td>@item.AppointmentReason</td>
+                <td>@item.UserProfile.UserName</td>
+                <td>@item.Diagnosis</td>
+                <td>@item.Notes</td>
+                <td>@item.FollowUp ? "Yes" : "No"</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<div class="pager">
+    @Html.PagedListPager(Model, page => Url.Action("Index", new { page, searchPatientID = Request["searchPatientID"] }))
+</div>

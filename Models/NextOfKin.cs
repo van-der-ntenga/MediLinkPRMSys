@@ -14,7 +14,7 @@ namespace MediLinkCB.Models
     
     public partial class NextOfKin
     {
-        public string SaID { get; set; }
+        public string PatientID { get; set; }
         public string NOKFirstName { get; set; }
         public string NOKLastName { get; set; }
         public string Relationship { get; set; }

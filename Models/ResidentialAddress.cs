@@ -14,7 +14,7 @@ namespace MediLinkCB.Models
     
     public partial class ResidentialAddress
     {
-        public string SaID { get; set; }
+        public string PatientID { get; set; }
         public string StreetAddress { get; set; }
         public string Suburb { get; set; }
         public string City { get; set; }

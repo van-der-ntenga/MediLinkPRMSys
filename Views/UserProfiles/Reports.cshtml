@@ -1,0 +1,59 @@
+﻿@model MediLinkCB.Models.UserReportViewModel
+
+@{
+    ViewBag.Title = "User Reports";
+    ViewBag.ShowSidebar = true;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>User Reports</h2>
+
+<!-- Table showing user counts -->
+<table class="table styled-table">
+    <thead>
+        <tr>
+            <th>Total Users</th>
+            <th>Doctors</th>
+            <th>Clerks</th>
+            <th>Nurses</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>@Model.TotalUserCount</td>
+            <td>@Model.DoctorCount</td>
+            <td>@Model.ClerkCount</td>
+            <td>@Model.NurseCount</td>
+        </tr>
+    </tbody>
+</table>
+
+<!-- Chart displaying user type distribution -->
+<canvas id="userTypeChart" width="400" height="200"></canvas>
+
+@section Scripts {
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        var ctx = document.getElementById('userTypeChart').getContext('2d');
+        var userTypeChart = new Chart(ctx, {
+            type: 'pie',
+            data: {
+                labels: ['Doctors', 'Clerks', 'Nurses'],
+                datasets: [{
+                    label: 'User Types',
+                    data: [@Model.DoctorCount, @Model.ClerkCount, @Model.NurseCount],
+                    backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56'],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                    }
+                }
+            }
+        });
+    </script>
+}

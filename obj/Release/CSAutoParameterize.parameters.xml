@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="MediLinkDBEntities-Web.config Connection String" description="MediLinkDBEntities Connection String used in web.config by the application to access the database." defaultValue="Server=tcp:medilinkdbdbserver.database.windows.net,1433;                          Initial Catalog=MediLinkDB;                          Persist Security Info=False;                          User ID=PortalAdmin;                          Password=MediLink2024;                          MultipleActiveResultSets=False;                          Encrypt=True;                          TrustServerCertificate=False;                          Connection Timeout=30;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\sibon\\source\\repos\\MediLinkCB\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='MediLinkDBEntities']/@connectionString" />
+  </parameter>
+  <parameter name="MediLinkDBEntities13-Web.config Connection String" description="MediLinkDBEntities13 Connection String used in web.config by the application to access the database." defaultValue="metadata=res://*/Models.MediLinkModel.csdl|res://*/Models.MediLinkModel.ssdl|res://*/Models.MediLinkModel.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=medilinkdbdbserver.database.windows.net;initial catalog=MediLinkDB;user id=PortalAdmin;password=MediLink2024;MultipleActiveResultSets=True;App=EntityFramework&quot;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\sibon\\source\\repos\\MediLinkCB\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='MediLinkDBEntities13']/@connectionString" />
+  </parameter>
+</parameters>

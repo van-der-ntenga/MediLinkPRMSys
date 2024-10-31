@@ -12,37 +12,42 @@ using System.Configuration;
 using MediLinkCB.Controllers;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
+using PagedList;
 
 namespace MediLinkCB.Controllers
 {
     
     public class PatientsController : Controller
     {
-        private MediLinkDBEntities7 db = new MediLinkDBEntities7();
+        private MediLinkDBEntities13 db = new MediLinkDBEntities13();
 
         // GET: Patients
-        public ActionResult Index(string searchSaID)
+        public ActionResult Index(string searchSaID, int? page)
         {
+            int pageSize = 10; // Number of patients per page
+            int pageNumber = (page ?? 1); // Default to page 1 if null
+
+            IQueryable<Patient> patientsQuery = db.Patients;
+
             if (!string.IsNullOrEmpty(searchSaID))
             {
                 // Search for the patient using SaID
-                var patient = db.Patients.FirstOrDefault(p => p.SaID == searchSaID);
+                patientsQuery = patientsQuery.Where(p => p.PatientID.Contains(searchSaID));
 
-                if (patient != null)
+                if (!patientsQuery.Any())
                 {
-                    // If a patient is found, return it in a list
-                    return View(new List<Patient> { patient });
+                    // If no patient found, return an empty list with a message
+                    ViewBag.Message = "No patient found with the provided ID/Passport Number.";
+                    return View(new List<Patient>().ToPagedList(pageNumber, pageSize));
                 }
-
-                // If no patient found, return an empty list with a message
-                ViewBag.Message = "No patient found with the provided SaID.";
-                return View(new List<Patient>());
             }
 
-            // If no search criteria, return all patients
-            var patients = db.Patients.ToList();
-            return View(patients);
+            // Return paginated results
+            var patientsPaged = patientsQuery.OrderBy(p => p.PatientSurname).ToPagedList(pageNumber, pageSize);
+
+            return View(patientsPaged);
         }
+
 
         // GET: Patients/Details/5
         public ActionResult Details(string id)
@@ -54,8 +59,8 @@ namespace MediLinkCB.Controllers
 
             // Fetch data from all three tables
             Patient patient = db.Patients.Find(id);
-            ResidentialAddress address = db.ResidentialAddresses.FirstOrDefault(a => a.SaID == id);
-            NextOfKin nextOfKin = db.NextOfKins.FirstOrDefault(n => n.SaID == id);
+            ResidentialAddress address = db.ResidentialAddresses.FirstOrDefault(a => a.PatientID == id);
+            NextOfKin nextOfKin = db.NextOfKins.FirstOrDefault(n => n.PatientID == id);
 
             if (patient == null || address == null || nextOfKin == null)
             {
@@ -66,7 +71,7 @@ namespace MediLinkCB.Controllers
             var viewModel = new PatientResidentialAddressNOKViewModel
             {
                 // Patient details
-                SaID = patient.SaID,
+                PatientID = patient.PatientID,
                 PatientName = patient.PatientName,
                 PatientSurname = patient.PatientSurname,
                 DateOfBirth = patient.DateOfBirth,
@@ -80,6 +85,7 @@ namespace MediLinkCB.Controllers
                 MaritalStatus = patient.MaritalStatus,
                 EmailAddress = patient.EmailAddress,
                 CellNumber = patient.CellNumber,
+                Nationality = patient.Nationality,
 
                 // Residential Address details
                 StreetAddress = address.StreetAddress,
@@ -112,33 +118,34 @@ namespace MediLinkCB.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(PatientResidentialAddressNOKViewModel m)
+        public ActionResult Create(PatientResidentialAddressNOKViewModel m, string hiddenDisability)
         {
             if (ModelState.IsValid)
             {
                 // Table 1: Patient Details
                 var patientDetails = new Patient
                 {
-                    SaID = m.SaID,
+                    PatientID = m.PatientID,
                     PatientName = m.PatientName,
                     PatientSurname = m.PatientSurname,
                     DateOfBirth = m.DateOfBirth,
                     Age = m.Age,
                     PatientHeight = m.PatientHeight,
                     PatientWeight = m.PatientWeight,
-                    Disability = m.Disability,
+                    Disability = hiddenDisability == "NONE" ? "NONE" : m.Disability,
                     Gender = m.Gender,
                     Race = m.Race,
                     HomeLang = m.HomeLang,
                     MaritalStatus = m.MaritalStatus,
                     EmailAddress = m.EmailAddress,
-                    CellNumber=m.CellNumber
+                    CellNumber=m.CellNumber,
+                    Nationality = m.Nationality
                 };
 
                 // Table 2: Contact Information
                 var address = new ResidentialAddress
                 {
-                    SaID = m.SaID,
+                    PatientID = m.PatientID,
                     StreetAddress = m.StreetAddress,
                     Suburb = m.Suburb,
                     City = m.City,
@@ -149,7 +156,7 @@ namespace MediLinkCB.Controllers
                 // Table 3: Medical Information
                 var nextOfKin = new NextOfKin
                 {
-                    SaID = m.SaID,
+                    PatientID = m.PatientID,
                     NOKFirstName = m.NOKFirstName,
                     NOKLastName = m.NOKLastName,
                     Relationship = m.Relationship,
@@ -184,8 +191,8 @@ namespace MediLinkCB.Controllers
 
             // Fetch data from all three tables
             Patient patient = db.Patients.Find(id);
-            ResidentialAddress address = db.ResidentialAddresses.FirstOrDefault(a => a.SaID == id);
-            NextOfKin nextOfKin = db.NextOfKins.FirstOrDefault(n => n.SaID == id);
+            ResidentialAddress address = db.ResidentialAddresses.FirstOrDefault(a => a.PatientID == id);
+            NextOfKin nextOfKin = db.NextOfKins.FirstOrDefault(n => n.PatientID == id);
 
             if (patient == null || address == null || nextOfKin == null)
             {
@@ -196,7 +203,7 @@ namespace MediLinkCB.Controllers
             var viewModel = new PatientResidentialAddressNOKViewModel
             {
                 // Patient details
-                SaID = patient.SaID,
+                PatientID = patient.PatientID,
                 PatientName = patient.PatientName,
                 PatientSurname = patient.PatientSurname,
                 DateOfBirth = patient.DateOfBirth,
@@ -210,6 +217,7 @@ namespace MediLinkCB.Controllers
                 MaritalStatus = patient.MaritalStatus,
                 EmailAddress = patient.EmailAddress,
                 CellNumber = patient.CellNumber,
+                Nationality = patient.Nationality,
 
                 // Residential Address details
                 StreetAddress = address.StreetAddress,
@@ -239,9 +247,9 @@ namespace MediLinkCB.Controllers
             if (ModelState.IsValid)
             {
                 // Fetch existing records from database
-                var patient = db.Patients.Find(m.SaID);
-                var address = db.ResidentialAddresses.FirstOrDefault(a => a.SaID == m.SaID);
-                var nextOfKin = db.NextOfKins.FirstOrDefault(n => n.SaID == m.SaID);
+                var patient = db.Patients.Find(m.PatientID);
+                var address = db.ResidentialAddresses.FirstOrDefault(a => a.PatientID == m.PatientID);
+                var nextOfKin = db.NextOfKins.FirstOrDefault(n => n.PatientID == m.PatientID);
 
                 if (patient != null && address != null && nextOfKin != null)
                 {
@@ -259,6 +267,7 @@ namespace MediLinkCB.Controllers
                     patient.MaritalStatus = m.MaritalStatus;
                     patient.EmailAddress = m.EmailAddress;
                     patient.CellNumber = m.CellNumber;
+                    patient.Nationality = m.Nationality;
 
                     // Update Residential Address details
                     address.StreetAddress = m.StreetAddress;
@@ -298,8 +307,8 @@ namespace MediLinkCB.Controllers
 
             // Fetch data from all three tables
             Patient patient = db.Patients.Find(id);
-            ResidentialAddress address = db.ResidentialAddresses.FirstOrDefault(a => a.SaID == id);
-            NextOfKin nextOfKin = db.NextOfKins.FirstOrDefault(n => n.SaID == id);
+            ResidentialAddress address = db.ResidentialAddresses.FirstOrDefault(a => a.PatientID == id);
+            NextOfKin nextOfKin = db.NextOfKins.FirstOrDefault(n => n.PatientID == id);
 
             if (patient == null || address == null || nextOfKin == null)
             {
@@ -309,7 +318,7 @@ namespace MediLinkCB.Controllers
             // Create ViewModel and populate with data for display
             var viewModel = new PatientResidentialAddressNOKViewModel
             {
-                SaID = patient.SaID,
+                PatientID = patient.PatientID,
                 PatientName = patient.PatientName,
                 PatientSurname = patient.PatientSurname,
                 DateOfBirth = patient.DateOfBirth,
@@ -323,6 +332,7 @@ namespace MediLinkCB.Controllers
                 MaritalStatus = patient.MaritalStatus,
                 EmailAddress = patient.EmailAddress,
                 CellNumber = patient.CellNumber,
+                Nationality = patient.Nationality,
                 StreetAddress = address.StreetAddress,
                 Suburb = address.Suburb,
                 City = address.City,
@@ -343,11 +353,22 @@ namespace MediLinkCB.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(string id)
         {
-            // Fetch data from all three tables
+            // Find the patient by SaID
             Patient patient = db.Patients.Find(id);
-            ResidentialAddress address = db.ResidentialAddresses.FirstOrDefault(a => a.SaID == id);
-            NextOfKin nextOfKin = db.NextOfKins.FirstOrDefault(n => n.SaID == id);
+            ResidentialAddress address = db.ResidentialAddresses.FirstOrDefault(a => a.PatientID == id);
+            NextOfKin nextOfKin = db.NextOfKins.FirstOrDefault(n => n.PatientID == id);
 
+            // First, remove all related records in the Prescription table
+            var prescriptions = db.Prescriptions.Where(p => p.PatientID == id).ToList();
+            if (prescriptions != null)
+            {
+                foreach (var prescription in prescriptions)
+                {
+                    db.Prescriptions.Remove(prescription);
+                }
+            }
+
+            // Remove the patient and related data
             if (patient != null)
             {
                 db.Patients.Remove(patient);
@@ -361,9 +382,48 @@ namespace MediLinkCB.Controllers
                 db.NextOfKins.Remove(nextOfKin);
             }
 
+            // Save changes to the database
             db.SaveChanges();
+
             return RedirectToAction("Index");
         }
+
+
+        public ActionResult PatientSummary()
+        {
+            var model = new PatientSummaryViewModel
+            {
+                // Gender counts
+                MaleCount = db.Patients.Count(p => p.Gender == "Male"),
+                FemaleCount = db.Patients.Count(p => p.Gender == "Female"),
+                OtherGenderCount = db.Patients.Count(p => p.Gender == "Other"),
+
+                // Race counts
+                BlackCount = db.Patients.Count(p => p.Race == "Black"),
+                WhiteCount = db.Patients.Count(p => p.Race == "White"),
+                AsianCount = db.Patients.Count(p => p.Race == "Asian"),
+                ColouredCount = db.Patients.Count(p => p.Race == "Coloured"),
+
+                // Age group counts
+                AgeGroup0To12 = db.Patients.Count(p => p.Age >= 0 && p.Age <= 12),
+                AgeGroup13To19 = db.Patients.Count(p => p.Age >= 13 && p.Age <= 19),
+                AgeGroup20To35 = db.Patients.Count(p => p.Age >= 20 && p.Age <= 35),
+                AgeGroup36To60 = db.Patients.Count(p => p.Age >= 36 && p.Age <= 60),
+                AgeGroup60Plus = db.Patients.Count(p => p.Age > 60),
+
+                // Marital status counts
+                SingleCount = db.Patients.Count(p => p.MaritalStatus == "Single"),
+                MarriedCount = db.Patients.Count(p => p.MaritalStatus == "Married"),
+                WidowedCount = db.Patients.Count(p => p.MaritalStatus == "Widowed"),
+
+                // Total patients
+                TotalPatientCount = db.Patients.Count()
+            };
+
+            return View(model);
+        }
+
+
 
 
         protected override void Dispose(bool disposing)

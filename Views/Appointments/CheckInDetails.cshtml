@@ -1,0 +1,86 @@
+﻿@model MediLinkCB.Models.Appointment
+
+@{
+    ViewBag.Title = "Check In Patient";
+    ViewBag.ShowMenu = true;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="form-horizontal">
+    <h2>Check In @Model.Patient.PatientName @Model.Patient.PatientSurname</h2>
+
+    <form action="" method="post">
+        @Html.AntiForgeryToken()
+
+        <div class="form-row">
+            <div class="form-group half-width">
+                <label>South African ID/Passport Number:</label>
+                <input type="text" class="form-control" value="@Model.Patient.PatientID" readonly />
+            </div>
+
+
+        </div>
+
+        <div class="form-row">
+            <div class="form-group half-width">
+                <label>Name:</label>
+                <input type="text" class="form-control" value="@Model.Patient.PatientName" readonly />
+            </div>
+
+            <div class="form-group half-width">
+                <label>Surname:</label>
+                <input type="text" class="form-control" value="@Model.Patient.PatientSurname" readonly />
+            </div>
+
+
+        </div>
+
+        <div class="form-row">
+            <div class="form-group half-width">
+                <label>Appointment Date &amp; Time:</label>
+                <input type="text" class="form-control" value="@Model.AppointmentDateTime" readonly />
+            </div>
+            <div class="form-group half-width">
+                <label>Reason for Appointment:</label>
+                <input type="text" class="form-control" value="@Model.AppointmentReason" readonly />
+            </div>
+
+        </div>
+
+
+        @if (Model.AppointmentReason == "Optometrist" || Model.AppointmentReason == "Gynaecologist" || Model.AppointmentReason == "Audiologist" || Model.AppointmentReason == "General Practitioner")
+        {
+            <div class="form-group col-md-4">
+                <label>Select Doctor:</label>
+                @Html.DropDownList("selectedDoctorId", new SelectList(ViewBag.Doctors, "UserID", "UserName"), "Select a Doctor/Nurse", new { @class = "form-control" })
+            </div>
+        }
+        else if (Model.AppointmentReason == "Family Planning" || Model.AppointmentReason == "Routine Check-Up")
+        {
+            <div class="form-group col-md-4">
+                <label>Select Nurse:</label>
+                @Html.DropDownList("selectedNurseId", new SelectList(ViewBag.Nurses, "UserID", "UserName"), "Select a Nurse", new { @class = "form-control" })
+            </div>
+        }
+
+        @if (ViewData.ModelState["MedicalStaffError"] != null)
+        {
+            <div class="alert alert-danger">@ViewData.ModelState["MedicalStaffError"].Errors[0].ErrorMessage</div>
+        }
+
+
+        <div class="form-row">
+            <div class="form-group half-width">
+                <label>Check In:</label>
+                <input type="checkbox" name="isCheckedIn" value="true" @(Model.IsCheckedIn ? "checked" : "") />
+
+            </div>
+        </div>
+        @if (ViewData.ModelState["CheckInError"] != null)
+        {
+            <div class="alert alert-danger">@ViewData.ModelState["CheckInError"].Errors[0].ErrorMessage</div>
+        }
+
+        <button type="submit" class="btn btn-success">Check In</button>
+    </form>
+</div>

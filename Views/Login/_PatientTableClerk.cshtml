@@ -1,0 +1,42 @@
+﻿@model PagedList.IPagedList<MediLinkCB.Models.Patient>
+@using PagedList.Mvc;
+
+<table class="table styled-table">
+    <thead>
+        <tr>
+            <th>@Html.DisplayName("South African ID/Passport Number")</th>
+            <th>@Html.DisplayName("Name")</th>
+            <th>@Html.DisplayName("Surname")</th>
+            <th>@Html.DisplayName("Date Of Birth")</th>
+            <th>@Html.DisplayName("Age")</th>
+            <th>@Html.DisplayName("Gender")</th>
+            <th>@Html.DisplayName("Race")</th>
+            <th>@Html.DisplayName("Disability")</th>
+            <th></th> <!-- For links -->
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.PatientID)</td>
+                <td>@Html.DisplayFor(modelItem => item.PatientName)</td>
+                <td>@Html.DisplayFor(modelItem => item.PatientSurname)</td>
+                <td>@item.DateOfBirth.ToString("dd-MMM-yyyy")</td>
+                <td>@Html.DisplayFor(modelItem => item.Age)</td>
+                <td>@Html.DisplayFor(modelItem => item.Gender)</td>
+                <td>@Html.DisplayFor(modelItem => item.Race)</td>
+                <td>@Html.DisplayFor(modelItem => item.Disability)</td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.PatientID }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.PatientID }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.PatientID })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<div>
+    @Html.PagedListPager(Model, page => Url.Action("Index", "Patients", new { page }))
+</div>
+

@@ -4,19 +4,23 @@ using System.Linq;
 using System.Web.Mvc;
 using System.Net.Mail;
 using System.Net;
-using BCrypt.Net; // Use BCrypt.Net package
+using BCrypt.Net; 
 using System.Text;
 using System.Security.Cryptography;
 using MediLinkCB.Controllers;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
+using PagedList;
+using System.Web.UI;
+using System.Collections.Generic;
+using System.Diagnostics;
 
 namespace MediLinkCB.Controllers
 {
     
     public class LoginController : Controller
     {
-        private MediLinkDBEntities7 db = new MediLinkDBEntities7();
+        private MediLinkDBEntities13 db = new MediLinkDBEntities13();
         // GET: Login
         public ActionResult Index()
         {
@@ -35,7 +39,7 @@ namespace MediLinkCB.Controllers
         {
             if (ModelState.IsValid)
             {
-                using (MediLinkDBEntities7 db = new MediLinkDBEntities7())
+                using (MediLinkDBEntities13 db = new MediLinkDBEntities13())
                 {
                     var obj = db.UserProfiles.FirstOrDefault(a => a.UserName.Equals(objUser.UserName));
                     if (obj != null)
@@ -47,15 +51,16 @@ namespace MediLinkCB.Controllers
                             Session["UserType"] = obj.UserType.ToString(); // Save user type in session
 
                             // Redirect based on UserType
-                            if (obj.UserName == "admin")
+                            if (obj.UserType == "Admin" || obj.UserName=="Admin")
+
                             {
-                                Session.Timeout = 5;
+                                Session.Timeout = 15;
                                 return RedirectToAction("AdminDashboard");
                             }
-                            else if (obj.UserName == "clerk")
+                            else if (obj.UserType == "Clerk" || obj.UserName=="Clerk")
                             {
-                                Session.Timeout = 5;
-                                return RedirectToAction("Dashboard", "Login");
+                                Session.Timeout = 15;
+                                return RedirectToAction("ClerkDashboard", "Login");
                             }
                             else
                             {
@@ -78,54 +83,109 @@ namespace MediLinkCB.Controllers
 
         public ActionResult Dashboard()
         {
-            Session.Timeout = 5;
+            Session.Timeout = 15;
             var patients = db.Patients.ToList(); 
             return View(patients);
         }
 
-        public ActionResult MainDashboard()
+        public ActionResult MainDashboard(string searchSaID, int? page)
         {
-            if (Session["UserID"] != null && Session["UserName"].ToString() != "admin")
+            if (Session["UserId"] != null && Session["UserName"] != null && Session["UserName"].ToString() != "admin")
             {
-                return View();
+                int pageSize = 10;
+                int pageNumber = (page ?? 1);
+
+
+                IQueryable<Patient> patientsQuery = db.Patients;
+
+
+                if (!string.IsNullOrEmpty(searchSaID))
+                {
+
+                    patientsQuery = patientsQuery.Where(p => p.PatientID.Contains(searchSaID));
+
+
+                    if (!patientsQuery.Any())
+                    {
+                        ViewBag.Message = "No patient found with the provided ID Number.";
+                        return View(new List<Patient>().ToPagedList(pageNumber, pageSize));
+                    }
+                }
+
+
+                var patientsPaged = patientsQuery.OrderBy(p => p.PatientID).ToPagedList(pageNumber, pageSize);
+
+
+                return View(patientsPaged);
             }
             else
             {
+
                 return RedirectToAction("Login");
             }
         }
-        public ActionResult ClerkDashboard()
+        public ActionResult ClerkDashboard(string searchSaID, int? page)
         {
-            if (Session["UserID"] != null && Session["UserName"].ToString() != "admin")
+            if (Session["UserId"] != null && Session["UserName"] != null && Session["UserName"].ToString() != "admin")
             {
-                return View();
+                int pageSize = 10; 
+                int pageNumber = (page ?? 1);
+
+                
+                IQueryable<Patient> patientsQuery = db.Patients;
+
+                
+                if (!string.IsNullOrEmpty(searchSaID))
+                {
+                    
+                    patientsQuery = patientsQuery.Where(p => p.PatientID.Contains(searchSaID));
+
+                    
+                    if (!patientsQuery.Any())
+                    {
+                        ViewBag.Message = "No patient found with the provided ID Number.";
+                        return View(new List<Patient>().ToPagedList(pageNumber, pageSize));
+                    }
+                }
+
+                
+                var patientsPaged = patientsQuery.OrderBy(p => p.PatientID).ToPagedList(pageNumber, pageSize);
+
+                
+                return View(patientsPaged);
             }
             else
             {
+               
                 return RedirectToAction("Login");
             }
         }
 
-        // A method to hash passwords before saving them to the database
+
+        
         public string HashPassword(string password)
         {
             return BCrypt.Net.BCrypt.HashPassword(password);
         }
 
-        // GET: Admin Dashboard - only accessible by Admin
-        //[Authorize(Roles = "admin")]
-        public ActionResult AdminDashboard()
+        
+        public ActionResult AdminDashboard(int? page)
         {
-            if (Session["UserID"] != null && Session["UserName"].ToString() == "admin")
+            if (Session["UserId"] != null && Session["UserName"]!=null)
             {
-                //return View();
-                return View("AdminDashboard");
+                
+                int pageNumber = page ?? 1;
+
+                var users = db.UserProfiles.OrderBy(u => u.UserName).ToPagedList(pageNumber, 10);
+
+                return View(users);
             }
             else
             {
                 return RedirectToAction("Login");
             }
         }
+
 
         // GET: Add User
         //[Authorize(Roles = "admin", Users = "admin")]
@@ -136,13 +196,31 @@ namespace MediLinkCB.Controllers
 
         // POST: Add User
         [HttpPost]
-        //[Authorize(Roles = "admin", Users = "admin")]
         [ValidateAntiForgeryToken]
-        public ActionResult AddUser(UserProfile newUser)
+        public ActionResult AddUser(UserProfilesViewModel newUser)
         {
+            // Validate Username
+            if (!IsValidUserName(newUser.UserName))
+            {
+                ViewBag.Message = "Username must be a single word without numbers or special characters.";
+                return View(newUser);
+            }
+
+            // Validate Password
+            if (!IsValidPassword(newUser.Password))
+            {
+                ViewBag.Message = "Password must be at least 8 characters long, contain at least one number, and one special character.";
+                return View(newUser);
+            }
+
             if (ModelState.IsValid)
             {
-                using (MediLinkDBEntities7 db = new MediLinkDBEntities7())
+                if (Session["UserId"] == null)
+                {
+                    return RedirectToAction("Login", "Login");
+                }
+
+                using (MediLinkDBEntities13 db = new MediLinkDBEntities13())
                 {
                     // Check if the user already exists
                     if (db.UserProfiles.Any(u => u.UserName == newUser.UserName))
@@ -151,25 +229,52 @@ namespace MediLinkCB.Controllers
                         return View(newUser);
                     }
 
-                    // Hash the password before storing
-                    newUser.PasswordHash = HashPassword(newUser.PasswordHash);
-
-                    db.UserProfiles.Add(newUser);
+                    var userProfile = new UserProfile
+                    {
+                        UserName = newUser.UserName,
+                        PasswordHash = HashPassword(newUser.Password), // Hash the password before storing
+                        Email = newUser.Email,
+                        UserType = newUser.UserType,
+                        IsActive = newUser.IsActive,
+                        Specialisation = newUser.UserType == "Doctor" ? newUser.Specialisation : null
+                    };
 
                     // Generate OTP for account recovery
                     string otp = GenerateOTP();
-                    newUser.OTP = otp;
-                    newUser.OTPExpiry = DateTime.Now.AddMinutes(15); // OTP is valid for 15 minutes
+                    userProfile.OTP = otp;
+                    userProfile.OTPExpiry = DateTime.Now.AddMinutes(15); // OTP is valid for 15 minutes
 
+                    db.UserProfiles.Add(userProfile);
                     db.SaveChanges();
-
-                    // Send OTP email for account recovery
-                    SendEmailOTP(newUser.Email, otp);
 
                     ViewBag.Message = "User successfully added and OTP sent.";
                 }
+                return RedirectToAction("Index", "UserProfiles");
             }
-            return RedirectToAction("Index", "UserProfiles");
+
+            return View(newUser);
+        }
+
+        private bool IsValidPassword(string password)
+        {
+            var regex = new System.Text.RegularExpressions.Regex(@"^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$");
+            if (!regex.IsMatch(password))
+            {
+                ViewBag.Message = "Password must be at least 8 characters long, contain at least one number, and one special character.";
+                return false;
+            }
+            return true;
+        }
+
+        private bool IsValidUserName(string userName)
+        {
+            var regex = new System.Text.RegularExpressions.Regex(@"^[A-Za-z]+$");
+            if (!regex.IsMatch(userName))
+            {
+                ViewBag.Message = "Username must be a single word without numbers or special characters.";
+                return false;
+            }
+            return true;
         }
 
         // OTP and password hashing utilities
@@ -183,30 +288,38 @@ namespace MediLinkCB.Controllers
         {
             try
             {
+                Debug.WriteLine($"Attempting to send OTP to: {email}");
+
                 MailMessage mail = new MailMessage();
                 mail.To.Add(email);
-                mail.From = new MailAddress("medilinksystem@outlook.com");
+                mail.From = new MailAddress("noreply.medilinkportal@gmail.com");  // Update to your new Gmail
                 mail.Subject = "Your OTP Code";
                 mail.Body = $"Your OTP code is {otp}. It is valid for 10 minutes.";
 
+                Debug.WriteLine("Mail message created successfully.");
+
                 SmtpClient smtp = new SmtpClient
                 {
-                    Host = "smtp.office365.com",
+                    Host = "smtp.gmail.com",   // Use Gmail's SMTP server
                     Port = 587,
                     UseDefaultCredentials = false,
-                    Credentials = new NetworkCredential("medilinksystem@outlook.com", "MediLink2024"),
+                    Credentials = new NetworkCredential("noreply.medilinkportal@gmail.com", "jtjz seqp mtst beva"), // Use Gmail App Password
                     EnableSsl = true
                 };
 
+                Debug.WriteLine("SMTP client configured. Attempting to send email.");
                 smtp.Send(mail);
+
+                Debug.WriteLine("Email sent successfully.");
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                // Log the error (e.g., to a file or monitoring system)
-                // Provide feedback to the user
+                Debug.WriteLine($"Error occurred while sending email: {ex.Message}");
                 ViewBag.Message = "There was an error sending the email. Please try again.";
             }
         }
+
+
 
 
 
@@ -222,7 +335,7 @@ namespace MediLinkCB.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult ForgotPassword(string email)
         {
-            using (MediLinkDBEntities7 db = new MediLinkDBEntities7())
+            using (MediLinkDBEntities13 db = new MediLinkDBEntities13())
             {
                 var user = db.UserProfiles.FirstOrDefault(u => u.Email == email);
                 if (user != null)
@@ -261,30 +374,30 @@ namespace MediLinkCB.Controllers
         {
             try
             {
-                using (MediLinkDBEntities7 db = new MediLinkDBEntities7())
+                using (MediLinkDBEntities13 db = new MediLinkDBEntities13())
                 {
-                    // Find the user by email and OTP, and ensure the OTP hasn't expired
+                    
                     var user = db.UserProfiles.FirstOrDefault(u => u.Email == email && u.OTP == otp && u.OTPExpiry > DateTime.Now);
                     if (user != null)
                     {
-                        // Clear the OTP after successful verification
+                        
                         user.OTP = null;
                         user.OTPExpiry = DateTime.Now;
                         db.SaveChanges();
 
-                        // Redirect to the Reset Password page
+                        
                         return RedirectToAction("ResetPassword", new { email = user.Email });
                     }
                     else
                     {
-                        // OTP is either incorrect or expired
+                        
                         ViewBag.Message = "Invalid OTP or OTP has expired.";
                     }
                 }
             }
             catch (Exception)
             {
-                // only added a catch to this code
+                
                 ViewBag.Message = "An error occurred while verifying the OTP. Please try again.";
 
 
@@ -311,7 +424,14 @@ namespace MediLinkCB.Controllers
                 return View();
             }
 
-            using (MediLinkDBEntities7 db = new MediLinkDBEntities7())
+            // Validate Password Strength
+            if (!IsValidPassword(newPassword))
+            {
+                ViewBag.Message = "Password must be at least 8 characters long, contain at least one number, and one special character.";
+                return View();
+            }
+
+            using (MediLinkDBEntities13 db = new MediLinkDBEntities13())
             {
                 var user = db.UserProfiles.FirstOrDefault(u => u.Email == email);
                 if (user != null)
@@ -331,6 +451,7 @@ namespace MediLinkCB.Controllers
             return View();
         }
 
+
         [HttpGet]
         public ActionResult Logout()
         {
@@ -338,7 +459,7 @@ namespace MediLinkCB.Controllers
             Session.Clear();
             Session.Abandon();
 
-            // Redirect to login page or any other page after logout
+
             return RedirectToAction("Login", "Login");
         }
 

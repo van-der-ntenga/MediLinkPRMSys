@@ -9,7 +9,7 @@ namespace MediLinkCB.Models
     public class PatientResidentialAddressNOKViewModel
     {
 
-        public string SaID { get; set; }
+        public string PatientID { get; set; }
         public string PatientName { get; set; }
         public string PatientSurname { get; set; }
         public System.DateTime DateOfBirth { get; set; }
@@ -23,6 +23,7 @@ namespace MediLinkCB.Models
         public string MaritalStatus { get; set; }
         public string EmailAddress { get; set; }
         public string CellNumber { get; set; }
+        public string Nationality { get; set; }
         // address
         public string StreetAddress { get; set; }
         public string Suburb { get; set; }

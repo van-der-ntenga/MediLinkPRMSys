@@ -1,0 +1,62 @@
+﻿@model PagedList.IPagedList<MediLinkCB.Models.Patient>
+@using PagedList.Mvc;
+
+@{
+    ViewBag.Title = "Patient Records";
+    ViewBag.ShowMainMenu = true;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Patient Records</h2>
+@Html.Partial("_SearchPatient")
+<hr />
+
+@if (!String.IsNullOrEmpty(ViewBag.Message))
+{
+    <div class="alert alert-danger">@ViewBag.Message</div>
+}
+
+<br>
+
+<table class="table styled-table">
+    <thead>
+        <tr>
+            <th>@Html.DisplayName("South African ID Number")</th>
+            <th>@Html.DisplayName("Name")</th>
+            <th>@Html.DisplayName("Surname")</th>
+            <th>@Html.DisplayName("Date Of Birth")</th>
+            <th>@Html.DisplayName("Age")</th>
+            <th>@Html.DisplayName("Gender")</th>
+            <th>@Html.DisplayName("Race")</th>
+            <th>@Html.DisplayName("Disability")</th>
+            <th></th> <!-- For links -->
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.PatientID)</td>
+                <td>@Html.DisplayFor(modelItem => item.PatientName)</td>
+                <td>@Html.DisplayFor(modelItem => item.PatientSurname)</td>
+                <td>@Html.DisplayFor(modelItem => item.DateOfBirth)</td>
+                <td>@Html.DisplayFor(modelItem => item.Age)</td>
+                <td>@Html.DisplayFor(modelItem => item.Gender)</td>
+                <td>@Html.DisplayFor(modelItem => item.Race)</td>
+                <td>@Html.DisplayFor(modelItem => item.Disability)</td>
+                <td>
+                    
+                    @Html.ActionLink("Details", "DetailsPatients", new { id = item.PatientID })
+                    
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+
+<div>
+    @Html.PagedListPager(Model, page => Url.Action("IndexPatients", new { page }))
+</div>
+

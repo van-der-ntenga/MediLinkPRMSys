@@ -1,0 +1,147 @@
+﻿@model MediLinkCB.Models.PatientSummaryViewModel
+
+@{
+    ViewBag.Title = "Patient Summary";
+    ViewBag.ShowMenu = true;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<!-- Gender Summary Table -->
+<h3>Gender Summary</h3>
+<table class="table styled-table">
+    <thead>
+        <tr>
+            <th>Total Patients</th>
+            <th>Males</th>
+            <th>Females</th>
+            <th>Other</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>@Model.TotalPatientCount</td>
+            <td>@Model.MaleCount</td>
+            <td>@Model.FemaleCount</td>
+            <td>@Model.OtherGenderCount</td>
+        </tr>
+    </tbody>
+</table>
+
+<!-- Race Summary Table -->
+<h3>Race Summary</h3>
+<table class="table styled-table">
+    <thead>
+        <tr>
+            <th>Black</th>
+            <th>White</th>
+            <th>Asian</th>
+            <th>Coloured</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>@Model.BlackCount</td>
+            <td>@Model.WhiteCount</td>
+            <td>@Model.AsianCount</td>
+            <td>@Model.ColouredCount</td>
+        </tr>
+    </tbody>
+</table>
+
+<!-- Chart Section with Grid Layout -->
+<div class="chart-grid">
+    <!-- Gender Pie Chart -->
+    <div class="chart-container">
+        <canvas id="genderChart"></canvas>
+    </div>
+
+    <!-- Race Pie Chart -->
+    <div class="chart-container">
+        <canvas id="raceChart"></canvas>
+    </div>
+
+    <!-- Age Group Pie Chart -->
+    <div class="chart-container">
+        <canvas id="ageGroupChart"></canvas>
+    </div>
+
+    <!-- Marital Status Pie Chart -->
+    <div class="chart-container">
+        <canvas id="maritalStatusChart"></canvas>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        var genderCtx = document.getElementById('genderChart').getContext('2d');
+        var genderChart = new Chart(genderCtx, {
+            type: 'pie',
+            data: {
+                labels: ['Male', 'Female', 'Other'],
+                datasets: [{
+                    data: [@Model.MaleCount, @Model.FemaleCount, @Model.OtherGenderCount],
+                    backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56'],
+                }]
+            }
+        });
+
+        var raceCtx = document.getElementById('raceChart').getContext('2d');
+        var raceChart = new Chart(raceCtx, {
+            type: 'pie',
+            data: {
+                labels: ['Black', 'White', 'Asian', 'Coloured'],
+                datasets: [{
+                    data: [@Model.BlackCount, @Model.WhiteCount, @Model.AsianCount, @Model.ColouredCount],
+                    backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56', '#FF9F40'],
+                }]
+            }
+        });
+
+        var ageGroupCtx = document.getElementById('ageGroupChart').getContext('2d');
+        var ageGroupChart = new Chart(ageGroupCtx, {
+            type: 'pie',
+            data: {
+                labels: ['0-12', '13-19', '20-35', '36-60', '60+'],
+                datasets: [{
+                    data: [@Model.AgeGroup0To12, @Model.AgeGroup13To19, @Model.AgeGroup20To35, @Model.AgeGroup36To60, @Model.AgeGroup60Plus],
+                    backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0', '#9966FF'],
+                }]
+            }
+        });
+
+        var maritalStatusCtx = document.getElementById('maritalStatusChart').getContext('2d');
+        var maritalStatusChart = new Chart(maritalStatusCtx, {
+            type: 'pie',
+            data: {
+                labels: ['Single', 'Married', 'Widowed'],
+                datasets: [{
+                    data: [@Model.SingleCount, @Model.MarriedCount, @Model.WidowedCount],
+                    backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56'],
+                }]
+            }
+        });
+    </script>
+}
+
+<!-- CSS for the grid layout and canvas size -->
+<style>
+    .chart-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); /* 2 charts per row */
+        gap: 20px; /* Space between the charts */
+    }
+
+    .chart-container {
+        width: 300px;
+        height: 300px;
+        margin: 0 auto; /* Center the charts */
+    }
+
+    canvas {
+        width: 100% !important;
+        height: 100% !important;
+    }
+</style>

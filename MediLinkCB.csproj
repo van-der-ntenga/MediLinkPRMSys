@@ -66,6 +66,12 @@
     <Reference Include="Microsoft.ApplicationInsights, Version=2.22.0.997, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>packages\Microsoft.ApplicationInsights.2.22.0\lib\net46\Microsoft.ApplicationInsights.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Configuration.ConfigurationBuilders.Base, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Configuration.ConfigurationBuilders.Base.2.0.0\lib\Net471\Microsoft.Configuration.ConfigurationBuilders.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Configuration.ConfigurationBuilders.UserSecrets, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Configuration.ConfigurationBuilders.UserSecrets.2.0.0\lib\Net471\Microsoft.Configuration.ConfigurationBuilders.UserSecrets.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.Testing.Extensions.Telemetry, Version=1.4.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>packages\Microsoft.Testing.Extensions.Telemetry.1.4.0\lib\netstandard2.0\Microsoft.Testing.Extensions.Telemetry.dll</HintPath>
@@ -105,6 +111,12 @@
     </Reference>
     <Reference Include="nunit.framework.legacy, Version=4.2.2.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
       <HintPath>packages\NUnit.4.2.2\lib\net462\nunit.framework.legacy.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
@@ -201,6 +213,7 @@
       <Private>True</Private>
       <HintPath>packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
     </Reference>
+    <Reference Include="netstandard" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
@@ -214,51 +227,55 @@
     <Compile Include="Attributes\CustomAuthorizeAttribute.cs" />
     <Compile Include="Controllers\AppointmentsController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\MedicalHistoriesController.cs" />
     <Compile Include="Controllers\PatientsController.cs" />
     <Compile Include="Controllers\UserProfilesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Appointment.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>MediLinkModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\MedicalHistory.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>MediLinkModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Medication.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>MediLinkModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Model1.Context.cs">
+    <Compile Include="Models\MediLinkModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.Context.tt</DependentUpon>
+      <DependentUpon>MediLinkModel.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Model1.cs">
+    <Compile Include="Models\MediLinkModel.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>MediLinkModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Model1.Designer.cs">
+    <Compile Include="Models\MediLinkModel.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.edmx</DependentUpon>
+      <DependentUpon>MediLinkModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\NextOfKin.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>MediLinkModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Patient.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>MediLinkModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\PatientResidentialAddressNOKViewModel.cs" />
+    <Compile Include="Models\PatientSummaryViewModel.cs" />
     <Compile Include="Models\Prescription.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>MediLinkModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ResidentialAddress.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>MediLinkModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\UserProfile.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>MediLinkModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\UserProfilesViewModel.cs" />
+    <Compile Include="Models\UserReportViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -280,20 +297,23 @@
     <Content Include="Content\bootstrap.rtl.min.css" />
     <Content Include="Content\clinic sign.png" />
     <Content Include="Content\css\site.css" />
+    <Content Include="Content\favicon.ico" />
     <Content Include="Content\health logo.png" />
     <Content Include="Content\hlengisizwe.jpg" />
+    <Content Include="Content\PagedList.css" />
     <Content Include="favicon.ico" />
+    <Content Include="favicon_1.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Models\Model1.Context.tt">
+    <Content Include="Models\MediLinkModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model1.edmx</DependentUpon>
-      <LastGenOutput>Model1.Context.cs</LastGenOutput>
+      <DependentUpon>MediLinkModel.edmx</DependentUpon>
+      <LastGenOutput>MediLinkModel.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\Model1.tt">
+    <Content Include="Models\MediLinkModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model1.edmx</DependentUpon>
-      <LastGenOutput>Model1.cs</LastGenOutput>
+      <DependentUpon>MediLinkModel.edmx</DependentUpon>
+      <LastGenOutput>MediLinkModel.cs</LastGenOutput>
     </Content>
     <Content Include="Scripts\appointment-calendar.js" />
     <Content Include="Scripts\bootstrap.bundle.js" />
@@ -302,13 +322,15 @@
     <Content Include="Scripts\bootstrap.esm.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <EntityDeploy Include="Models\Model1.edmx">
+    <Content Include="Content\animations\Animation - 1729266186768.json" />
+    <EntityDeploy Include="Models\MediLinkModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
+      <LastGenOutput>MediLinkModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Models\Model1.edmx.diagram">
-      <DependentUpon>Model1.edmx</DependentUpon>
+    <Content Include="Models\MediLinkModel.edmx.diagram">
+      <DependentUpon>MediLinkModel.edmx</DependentUpon>
     </Content>
+    <None Include="Properties\PublishProfiles\medilinkportal - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -366,6 +388,29 @@
     <Content Include="Views\Appointments\Index.cshtml" />
     <Content Include="Views\Shared\_MainMenu.cshtml" />
     <Content Include="Views\Login\Index.cshtml" />
+    <Content Include="Views\Shared\_UserProfilesTable.cshtml" />
+    <Content Include="Views\UserProfiles\Reports.cshtml" />
+    <Content Include="Views\Patients\_PatientTable.cshtml" />
+    <Content Include="Views\Login\_PatientTableClerk.cshtml" />
+    <Content Include="Views\Login\_PatientTableWithLinks.cshtml" />
+    <Content Include="Views\Patients\PatientSummary.cshtml" />
+    <Content Include="Views\Shared\PatientSummary.cshtml" />
+    <Content Include="Views\Appointments\CheckIn.cshtml" />
+    <Content Include="Views\Appointments\CheckInDetails.cshtml" />
+    <Content Include="Views\MedicalHistories\Create.cshtml" />
+    <Content Include="Views\MedicalHistories\Delete.cshtml" />
+    <Content Include="Views\MedicalHistories\Details.cshtml" />
+    <Content Include="Views\MedicalHistories\Edit.cshtml" />
+    <Content Include="Views\MedicalHistories\Index.cshtml" />
+    <Content Include="Views\Shared\_SearchUser.cshtml" />
+    <Content Include="Views\Shared\_SearchRecord.cshtml" />
+    <Content Include="Views\MedicalHistories\SearchMedicalRecords.cshtml" />
+    <Content Include="Views\Shared\_SearchAppointment.cshtml" />
+    <Content Include="Views\MedicalHistories\MyAppointments.cshtml" />
+    <Content Include="Views\MedicalHistories\EditMedicalRecord.cshtml" />
+    <Content Include="Views\MedicalHistories\IndexPatients.cshtml" />
+    <Content Include="Views\MedicalHistories\DetailsPatients.cshtml" />
+    <Content Include="Views\Shared\_SearchPatient.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -442,12 +487,14 @@
     <Error Condition="!Exists('packages\Microsoft.Testing.Extensions.Telemetry.1.4.0\build\netstandard2.0\Microsoft.Testing.Extensions.Telemetry.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Microsoft.Testing.Extensions.Telemetry.1.4.0\build\netstandard2.0\Microsoft.Testing.Extensions.Telemetry.props'))" />
     <Error Condition="!Exists('packages\MSTest.TestAdapter.3.6.0\build\net462\MSTest.TestAdapter.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\MSTest.TestAdapter.3.6.0\build\net462\MSTest.TestAdapter.props'))" />
     <Error Condition="!Exists('packages\MSTest.TestAdapter.3.6.0\build\net462\MSTest.TestAdapter.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\MSTest.TestAdapter.3.6.0\build\net462\MSTest.TestAdapter.targets'))" />
+    <Error Condition="!Exists('packages\NETStandard.Library.2.0.3\build\netstandard2.0\NETStandard.Library.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\NETStandard.Library.2.0.3\build\netstandard2.0\NETStandard.Library.targets'))" />
   </Target>
   <Import Project="packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
   <Import Project="packages\Microsoft.Testing.Platform.MSBuild.1.4.0\build\netstandard2.0\Microsoft.Testing.Platform.MSBuild.targets" Condition="Exists('packages\Microsoft.Testing.Platform.MSBuild.1.4.0\build\netstandard2.0\Microsoft.Testing.Platform.MSBuild.targets')" />
   <Import Project="packages\MSTest.TestAdapter.3.6.0\build\net462\MSTest.TestAdapter.targets" Condition="Exists('packages\MSTest.TestAdapter.3.6.0\build\net462\MSTest.TestAdapter.targets')" />
+  <Import Project="packages\NETStandard.Library.2.0.3\build\netstandard2.0\NETStandard.Library.targets" Condition="Exists('packages\NETStandard.Library.2.0.3\build\netstandard2.0\NETStandard.Library.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
-       Other similar extension points exist, see Microsoft.Common.targets.
+	   Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
   </Target>
   <Target Name="AfterBuild">

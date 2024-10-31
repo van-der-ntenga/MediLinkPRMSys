@@ -1,0 +1,9 @@
+﻿@using (Html.BeginForm("Index", "MedicalHistories", FormMethod.Get))
+{
+    <div class="form-group">
+        @Html.Label("Search by SA ID/Passport Number:")
+        @Html.TextBox("searchPatientID", null, new { @class = "form-control", placeholder = "Enter ID/Passport Number" })
+    </div>
+    <button type="submit" class="btn btn-primary registerbtn">Search</button>
+}
+

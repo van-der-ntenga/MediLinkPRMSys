@@ -1,0 +1,58 @@
+﻿@model IEnumerable<MediLinkCB.Models.MedicalHistory>
+@{
+    ViewBag.Title = "Search Medical Records";
+    ViewBag.ShowMainMenu = true;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Search Medical Records</h2>
+
+<!-- Search Form -->
+<form method="get" action="@Url.Action("SearchMedicalRecords")">
+    <div class="form-group">
+        <label>Search by Patient ID:</label>
+        <input type="text" name="searchPatientID" class="form-control" placeholder="Enter SA ID/Passport Number" />
+    </div>
+    <button type="submit" class="btn btn-primary">Search</button>
+</form>
+@if (!String.IsNullOrEmpty(ViewBag.Message))
+{
+    <div class="alert alert-danger">@ViewBag.Message</div>
+}
+<hr />
+
+<!-- Display ViewBag Message if set -->
+@if (!string.IsNullOrEmpty(ViewBag.Message))
+{
+    <div class="alert alert-warning">
+        @ViewBag.Message
+    </div>
+}
+
+<!-- Display Records if found -->
+@if (Model.Any())
+{
+    <table class="table styled-table">
+        <thead>
+            <tr>
+                <th>Patient Name</th>
+                <th>Appointment Reason</th>
+                <th>Diagnosis</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var record in Model)
+            {
+                <tr>
+                    <td>@record.Patient.PatientName @record.Patient.PatientSurname</td>
+                    <td>@record.AppointmentReason</td>
+                    <td>@record.Diagnosis</td>
+                    <td>
+                        @Html.ActionLink("View Medical Record", "Details", new { id = record.MedicalHistoryID })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

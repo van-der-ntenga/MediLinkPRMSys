@@ -1,50 +1,23 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="MediLinkDBModelStoreContainer" CdmEntityContainer="MediLinkDBEntities7">
+  <EntityContainerMapping StorageEntityContainer="MediLinkDBModelStoreContainer" CdmEntityContainer="MediLinkDBEntities11">
     <EntitySetMapping Name="Appointments">
       <EntityTypeMapping TypeName="MediLinkDBModel.Appointment">
         <MappingFragment StoreEntitySet="Appointment">
           <ScalarProperty Name="AppointmentID" ColumnName="AppointmentID" />
           <ScalarProperty Name="UserID" ColumnName="UserID" />
-          <ScalarProperty Name="SaID" ColumnName="SaID" />
+          <ScalarProperty Name="PatientID" ColumnName="PatientID" />
           <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
-          <ScalarProperty Name="AppointmentDateTime" ColumnName="AppointmentDateTime" />
+          <ScalarProperty Name="AppointmentDate" ColumnName="AppointmentDate" />
           <ScalarProperty Name="AppointmentReason" ColumnName="AppointmentReason" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="MedicalHistories">
-      <EntityTypeMapping TypeName="MediLinkDBModel.MedicalHistory">
-        <MappingFragment StoreEntitySet="MedicalHistory">
-          <ScalarProperty Name="UserID" ColumnName="UserID" />
-          <ScalarProperty Name="SaID" ColumnName="SaID" />
-          <ScalarProperty Name="MedicationID" ColumnName="MedicationID" />
-          <ScalarProperty Name="PatientType" ColumnName="PatientType" />
-          <ScalarProperty Name="DiagnosisDate" ColumnName="DiagnosisDate" />
-          <ScalarProperty Name="Allergies" ColumnName="Allergies" />
-          <ScalarProperty Name="Condition" ColumnName="Condition" />
-          <ScalarProperty Name="Surgeries" ColumnName="Surgeries" />
-          <ScalarProperty Name="LastUpdated" ColumnName="LastUpdated" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Medications">
-      <EntityTypeMapping TypeName="MediLinkDBModel.Medication">
-        <MappingFragment StoreEntitySet="Medication">
-          <ScalarProperty Name="MedicationID" ColumnName="MedicationID" />
-          <ScalarProperty Name="MedicationName" ColumnName="MedicationName" />
-          <ScalarProperty Name="BrandName" ColumnName="BrandName" />
-          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
-          <ScalarProperty Name="ManufacturedDate" ColumnName="ManufacturedDate" />
-          <ScalarProperty Name="ExpiryDate" ColumnName="ExpiryDate" />
-          <ScalarProperty Name="Dosage" ColumnName="Dosage" />
+          <ScalarProperty Name="IsCheckedIn" ColumnName="IsCheckedIn" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="NextOfKins">
       <EntityTypeMapping TypeName="MediLinkDBModel.NextOfKin">
         <MappingFragment StoreEntitySet="NextOfKin">
-          <ScalarProperty Name="SaID" ColumnName="SaID" />
+          <ScalarProperty Name="PatientID" ColumnName="PatientID" />
           <ScalarProperty Name="NOKFirstName" ColumnName="NOKFirstName" />
           <ScalarProperty Name="NOKLastName" ColumnName="NOKLastName" />
           <ScalarProperty Name="Relationship" ColumnName="Relationship" />
@@ -55,11 +28,12 @@
     <EntitySetMapping Name="Patients">
       <EntityTypeMapping TypeName="MediLinkDBModel.Patient">
         <MappingFragment StoreEntitySet="Patient">
-          <ScalarProperty Name="SaID" ColumnName="SaID" />
+          <ScalarProperty Name="PatientID" ColumnName="PatientID" />
           <ScalarProperty Name="PatientName" ColumnName="PatientName" />
           <ScalarProperty Name="PatientSurname" ColumnName="PatientSurname" />
           <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
           <ScalarProperty Name="Age" ColumnName="Age" />
+          <ScalarProperty Name="Nationality" ColumnName="Nationality" />
           <ScalarProperty Name="PatientHeight" ColumnName="PatientHeight" />
           <ScalarProperty Name="PatientWeight" ColumnName="PatientWeight" />
           <ScalarProperty Name="Disability" ColumnName="Disability" />
@@ -75,18 +49,21 @@
     <EntitySetMapping Name="Prescriptions">
       <EntityTypeMapping TypeName="MediLinkDBModel.Prescription">
         <MappingFragment StoreEntitySet="Prescription">
-          <ScalarProperty Name="PrescriptionID" ColumnName="PrescriptionID" />
           <ScalarProperty Name="UserID" ColumnName="UserID" />
-          <ScalarProperty Name="SaID" ColumnName="SaID" />
-          <ScalarProperty Name="MedicationID" ColumnName="MedicationID" />
-          <ScalarProperty Name="Duration" ColumnName="Duration" />
+          <ScalarProperty Name="PatientID" ColumnName="PatientID" />
+          <ScalarProperty Name="PrescriptionID" ColumnName="PrescriptionID" />
+          <ScalarProperty Name="StringId" ColumnName="StringId" />
+          <ScalarProperty Name="AppointmentID" ColumnName="AppointmentID" />
+          <ScalarProperty Name="MedicationName" ColumnName="MedicationName" />
+          <ScalarProperty Name="IsCollected" ColumnName="IsCollected" />
+          <ScalarProperty Name="AppointmentDateTime" ColumnName="AppointmentDateTime" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="ResidentialAddresses">
       <EntityTypeMapping TypeName="MediLinkDBModel.ResidentialAddress">
         <MappingFragment StoreEntitySet="ResidentialAddress">
-          <ScalarProperty Name="SaID" ColumnName="SaID" />
+          <ScalarProperty Name="PatientID" ColumnName="PatientID" />
           <ScalarProperty Name="StreetAddress" ColumnName="StreetAddress" />
           <ScalarProperty Name="Suburb" ColumnName="Suburb" />
           <ScalarProperty Name="City" ColumnName="City" />
@@ -106,24 +83,27 @@
           <ScalarProperty Name="IsActive" ColumnName="IsActive" />
           <ScalarProperty Name="OTP" ColumnName="OTP" />
           <ScalarProperty Name="OTPExpiry" ColumnName="OTPExpiry" />
+          <ScalarProperty Name="Specialisation" ColumnName="Specialisation" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <AssociationSetMapping Name="MediScript" TypeName="MediLinkDBModel.MediScript" StoreEntitySet="MediScript">
-      <EndProperty Name="Prescription">
-        <ScalarProperty Name="PrescriptionID" ColumnName="PrescriptionID" />
-      </EndProperty>
-      <EndProperty Name="Patient">
-        <ScalarProperty Name="SaID" ColumnName="SaID" />
-      </EndProperty>
-    </AssociationSetMapping>
-    <AssociationSetMapping Name="TrackingHistory" TypeName="MediLinkDBModel.TrackingHistory" StoreEntitySet="TrackingHistory">
-      <EndProperty Name="Appointment">
-        <ScalarProperty Name="AppointmentID" ColumnName="AppointmentID" />
-      </EndProperty>
-      <EndProperty Name="Patient">
-        <ScalarProperty Name="SaID" ColumnName="SaID" />
-      </EndProperty>
-    </AssociationSetMapping>
+    <EntitySetMapping Name="MedicalHistories">
+      <EntityTypeMapping TypeName="MediLinkDBModel.MedicalHistory">
+        <MappingFragment StoreEntitySet="MedicalHistory">
+          <ScalarProperty Name="FollowUp" ColumnName="FollowUp" />
+          <ScalarProperty Name="AppointmentDateTime" ColumnName="AppointmentDateTime" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+          <ScalarProperty Name="Diagnosis" ColumnName="Diagnosis" />
+          <ScalarProperty Name="AppointmentReason" ColumnName="AppointmentReason" />
+          <ScalarProperty Name="PatientSurname" ColumnName="PatientSurname" />
+          <ScalarProperty Name="PatientName" ColumnName="PatientName" />
+          <ScalarProperty Name="PrescriptionID" ColumnName="PrescriptionID" />
+          <ScalarProperty Name="AppointmentID" ColumnName="AppointmentID" />
+          <ScalarProperty Name="PatientID" ColumnName="PatientID" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="MedicalHistoryID" ColumnName="MedicalHistoryID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

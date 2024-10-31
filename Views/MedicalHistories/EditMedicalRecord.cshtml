@@ -1,0 +1,100 @@
+﻿@model MediLinkCB.Models.MedicalHistory
+
+@{
+    ViewBag.Title = "Edit Medical Record";
+    ViewBag.ShowMainMenu = true;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Edit Medical Record</h2>
+<hr />
+
+<div class="form-horizontal">
+    @using (Html.BeginForm("EditMedicalRecord", "MedicalHistories", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+        @Html.HiddenFor(model => model.MedicalHistoryID)
+
+        <div class="form-row">
+            <div class="form-group half-width">
+                <label>Patient Name:</label>
+                <input type="text" class="form-control" value="@Model.PatientName" readonly />
+            </div>
+            <div class="form-group half-width">
+                <label>Appointment Reason:</label>
+                <input type="text" class="form-control" value="@Model.AppointmentReason" readonly />
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group half-width">
+                <label>Diagnosis:</label>
+                @Html.TextAreaFor(model => model.Diagnosis, new { @class = "form-control" })
+            </div>
+            <div class="form-group half-width">
+                <label>Notes:</label>
+                @Html.TextAreaFor(model => model.Notes, new { @class = "form-control" })
+            </div>
+        </div>
+
+        <div class="form-row">
+            <label>Medications:</label>
+            <div id="medications-list" class="form-group">
+                @if (Model.Prescription != null && Model.Prescription.Medications != null && Model.Prescription.Medications.Any())
+                {
+                    foreach (var medication in Model.Prescription.Medications)
+                    {
+                        <div class="medication-item d-flex mb-2">
+                            <input type="text" name="medicationNames" class="form-control" value="@medication.MedicationName" style="flex: 1;" />
+                            @if (Model.Prescription.Medications.Count() > 1)
+                            {
+                                <button type="button" class="btn btn-danger remove-medication ml-2">Remove</button>
+                            }
+                        </div>
+                    }
+                }
+                else
+                {
+                    <div class="medication-item d-flex mb-2">
+                        <input type="text" name="medicationNames" class="form-control" placeholder="Enter medication name" style="flex: 1;" required />
+                    </div>
+                }
+            </div>
+            <div class="form-group">
+                <button type="button" id="add-medication" class="btn btn-primary mt-2">Add More</button>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group half-width">
+                <label>Follow-Up Required:</label>
+                <select class="form-control" id="FollowUp" name="FollowUp">
+                    <option value="false" @(Model.FollowUp == false ? "selected" : "")>No</option>
+                    <option value="true" @(Model.FollowUp == true ? "selected" : "")>Yes</option>
+                </select>
+            </div>
+        </div>
+
+        <hr />
+
+        <div class="form-row">
+            <button type="submit" class="btn btn-primary registerbtn">Submit</button>
+        </div>
+    }
+</div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            // Function to add more medications
+            $('#add-medication').click(function () {
+                $('#medications-list').append('<div class="medication-item d-flex mb-2"><input type="text" name="medicationNames" class="form-control" placeholder="Enter medication name" style="flex: 1;" /><button type="button" class="btn btn-danger remove-medication ml-2">Remove</button></div>');
+            });
+
+            // Remove medication
+            $(document).on('click', '.remove-medication', function () {
+                $(this).closest('.medication-item').remove();
+            });
+        });
+    </script>
+}
